@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo de licores premium - Cervezas, vinos, whiskies, ron y más. Entrega 24-48h">
+    <meta name="keywords" content="catálogo licores, comprar vino online, cerveza, whisky, ron, Ecuador">
+    <title>Catálogo TEST 2 - LicorPremium | Bebidas Premium</title>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../styles/styles.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 
+        🎨 PALETA DE COLORES TEST 2 - Tonos Tierra/Cálidos
+        #091626 - Azul Oscuro Profundo (RGB 9,22,38)
+        #6889A6 - Azul Grisáceo (RGB 104,137,166)
+        #F2EADF - Beige Claro (RGB 242,234,223)
+        #BFA38A - Beige/Caqui (RGB 191,163,138)
+        #735645 - Marrón Oscuro (RGB 115,86,69)
+        */
+        
+        /* Variables CSS sobrescritas */
+        :root {
+            --color-dorado: #6889A6 !important;
+            --color-dorado-claro: #BFA38A !important;
+            --color-dorado-oscuro: #735645 !important;
+            --color-negro-premium: #091626 !important;
+            --bg-primary: #F2EADF !important;
+            --text-primary: #091626 !important;
+        }
+        
+        /* Body y fondos */
+        body {
+            background: #F2EADF !important;
+            color: #091626 !important;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #091626 0%, #735645 100%) !important;
+        }
+        
+        .header__top {
+            background: #091626 !important;
+        }
+        
+        .header__logo h1 {
+            color: #F2EADF !important;
+        }
+        
+        .header__actions-icon {
+            color: #F2EADF !important;
+        }
+        
+        .header__actions-icon:hover {
+            color: #BFA38A !important;
+        }
+        
+        /* Navegación */
+        .nav {
+            background: linear-gradient(135deg, #091626 0%, #735645 100%) !important;
+        }
+        
+        .categories-list__link {
+            color: #F2EADF !important;
+        }
+        
+        .categories-list__link:hover,
+        .categories-list__link--active {
+            color: #BFA38A !important;
+            border-bottom-color: #BFA38A !important;
+        }
+        
+        /* Títulos */
+        h1, h2, h3 {
+            color: #6889A6 !important;
+        }
+        
+        /* Filtros y badges */
+        .filter-badge {
+            background: #6889A6 !important;
+            color: #F2EADF !important;
+        }
+        
+        .filter-badge:hover {
+            background: #735645 !important;
+        }
+        
+        /* Cards de productos */
+        .product-card {
+            background: white !important;
+            border: 1px solid #BFA38A !important;
+        }
+        
+        .product-card:hover {
+            border-color: #6889A6 !important;
+            box-shadow: 0 8px 24px rgba(104, 137, 166, 0.3) !important;
+        }
+        
+        .product-card__badge {
+            background: #735645 !important;
+        }
+        
+        .product-card__price {
+            color: #6889A6 !important;
+        }
+        
+        .product-card__price-original {
+            color: #735645 !important;
+        }
+        
+        /* Botones */
+        .btn-primary {
+            background: linear-gradient(135deg, #6889A6 0%, #BFA38A 100%) !important;
+            color: #091626 !important;
+        }
+        
+        .btn-primary:hover {
+            box-shadow: 0 5px 15px rgba(104, 137, 166, 0.4) !important;
+        }
+        
+        .btn-add-to-cart {
+            background: #6889A6 !important;
+            color: #F2EADF !important;
+        }
+        
+        .btn-add-to-cart:hover {
+            background: #735645 !important;
+        }
+        
+        /* Inputs y selects */
+        input, select {
+            border-color: #BFA38A !important;
+        }
+        
+        input:focus, select:focus {
+            border-color: #6889A6 !important;
+            box-shadow: 0 0 0 3px rgba(104, 137, 166, 0.2) !important;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #091626 0%, #735645 100%) !important;
+            color: #F2EADF !important;
+        }
+        
+        .footer__link {
+            color: #BFA38A !important;
+        }
+        
+        .footer__link:hover {
+            color: #F2EADF !important;
+        }
+        
+        /* Rating stars */
+        .product-card__rating i {
+            color: #BFA38A !important;
+        }
+        
+        /* Paginación */
+        .pagination__link {
+            border: 1px solid #BFA38A !important;
+            color: #6889A6 !important;
+        }
+        
+        .pagination__link:hover,
+        .pagination__link--active {
+            background: #6889A6 !important;
+            color: #F2EADF !important;
+            border-color: #6889A6 !important;
+        }
+        
+        /* Modo oscuro */
+        [data-theme="dark"] {
+            --bg-primary: #091626 !important;
+            --text-primary: #F2EADF !important;
+        }
+        
+        [data-theme="dark"] body {
+            background: #091626 !important;
+            color: #F2EADF !important;
+        }
+        
+        [data-theme="dark"] .product-card {
+            background: #1a2433 !important;
+            border-color: #6889A6 !important;
+            color: #F2EADF !important;
+        }
+        
+        [data-theme="dark"] .product-card:hover {
+            border-color: #BFA38A !important;
+        }
+        
+        [data-theme="dark"] .categories-list__link {
+            color: #F2EADF !important;
+        }
+        
+        [data-theme="dark"] .categories-list__link:hover {
+            color: #BFA38A !important;
+        }
+        
+        [data-theme="dark"] input,
+        [data-theme="dark"] select {
+            background: #1a2433 !important;
+            color: #F2EADF !important;
+            border-color: #6889A6 !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" role="banner">
+        <!-- Main Header -->
+        <nav class="header-main" role="navigation" aria-label="Navegación principal">
+            <div class="container">
+                <div class="header-main__wrapper">
+                    <!-- Logo -->
+                    <div class="header-main__logo">
+                        <a href="index.html" class="logo" aria-label="Ir a inicio">
+                            <i class="fas fa-wine-glass-alt logo__icon"></i>
+                            <span class="logo__text">LicorPremium</span>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="header-main__search">
+                        <form class="search-form" role="search" aria-label="Buscar productos" id="catalog-search-form">
+                            <input 
+                                type="text" 
+                                class="search-form__input" 
+                                id="catalog-search-input"
+                                placeholder="Buscar licores, marcas..." 
+                                aria-label="Campo de búsqueda"
+                            >
+                            <button type="submit" class="search-form__btn" aria-label="Buscar">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="header-main__actions">
+                        <!-- Theme Toggle - PRIMER LUGAR -->
+                        <button 
+                            class="header-action theme-toggle" 
+                            id="theme-toggle"
+                            aria-label="Cambiar tema"
+                            title="Cambiar entre modo claro y oscuro"
+                        >
+                            <i class="fas fa-moon theme-toggle__icon theme-toggle__icon--dark"></i>
+                            <i class="fas fa-sun theme-toggle__icon theme-toggle__icon--light"></i>
+                        </button>
+
+                        <button 
+                            class="header-action" 
+                            aria-label="Lista de deseos" 
+                            id="wishlist-btn"
+                            title="Mis productos favoritos"
+                        >
+                            <i class="fas fa-heart"></i>
+                            <span class="header-action__badge" id="wishlist-count">0</span>
+                            <span class="header-action__text">Favoritos</span>
+                        </button>
+
+                        <a 
+                            href="#"
+                            class="header-action" 
+                            aria-label="Rastrear pedido"
+                            title="Rastrear mi pedido"
+                        >
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="header-action__text">Rastrear</span>
+                        </a>
+
+                        <button 
+                            class="header-action" 
+                            aria-label="Mi cuenta" 
+                            id="account-btn"
+                            aria-expanded="false"
+                            title="Iniciar sesión o crear cuenta"
+                        >
+                            <i class="fas fa-user"></i>
+                            <span class="header-action__text">Cuenta</span>
+                        </button>
+
+                        <a 
+                            href="carrito.html" 
+                            class="header-action header-action--cart" 
+                            aria-label="Carrito de compras"
+                            id="cart-btn"
+                            title="Ver mi carrito de compras"
+                        >
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="header-action__badge" id="cart-count">0</span>
+                            <span class="header-action__text">Carrito</span>
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button 
+                        class="header-main__toggle" 
+                        id="menu-toggle" 
+                        aria-label="Abrir menú" 
+                        aria-expanded="false"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Category Navigation -->
+        <nav class="header-categories" id="header-categories" role="navigation" aria-label="Navegación principal y categorías">
+            <div class="container">
+                <ul class="categories-list">
+                    <li class="categories-list__item">
+                        <a href="index.html" class="categories-list__link">
+                            <i class="fas fa-home"></i>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li class="categories-list__item categories-list__item--dropdown">
+                        <a href="catalogo.html" class="categories-list__link" id="categorias-dropdown" aria-current="page">
+                            <i class="fas fa-wine-bottle"></i>
+                            <span>Catálogo</span>
+                            <i class="fas fa-chevron-down categories-list__arrow"></i>
+                        </a>
+                        <div class="categories-dropdown" id="categorias-dropdown-menu">
+                            <div class="categories-dropdown__content">
+                                <a href="catalogo.html?cat=vinos" class="categories-dropdown__link">
+                                    <i class="fas fa-wine-glass"></i> Vinos
+                                </a>
+                                <a href="catalogo.html?cat=whisky" class="categories-dropdown__link">
+                                    <i class="fas fa-glass-whiskey"></i> Whiskies
+                                </a>
+                                <a href="catalogo.html?cat=ron" class="categories-dropdown__link">
+                                    <i class="fas fa-cocktail"></i> Ron
+                                </a>
+                                <a href="catalogo.html?cat=vodka" class="categories-dropdown__link">
+                                    <i class="fas fa-fill-drip"></i> Vodka
+                                </a>
+                                <a href="catalogo.html?cat=ginebra" class="categories-dropdown__link">
+                                    <i class="fas fa-glass-martini-alt"></i> Ginebra
+                                </a>
+                                <a href="catalogo.html?cat=cervezas" class="categories-dropdown__link">
+                                    <i class="fas fa-beer"></i> Cervezas
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="categories-list__item">
+                        <a href="acerca.html" class="categories-list__link">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Acerca de Nosotros</span>
+                        </a>
+                    </li>
+                    <li class="categories-list__item">
+                        <a href="contacto.html" class="categories-list__link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contacto</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content" role="main" class="catalog-page">
+        <!-- Breadcrumb -->
+        <section class="breadcrumb">
+            <div class="container">
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb__list">
+                        <li class="breadcrumb__item">
+                            <a href="index.html" class="breadcrumb__link">
+                                <i class="fas fa-home"></i> Inicio
+                            </a>
+                        </li>
+                        <li class="breadcrumb__item breadcrumb__item--active">
+                            <span>Catálogo</span>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Catalog Header -->
+        <section class="catalog-header">
+            <div class="container">
+                <div class="catalog-header__content">
+                    <div class="catalog-header__text">
+                        <h1 class="catalog-header__title">Nuestro Catálogo</h1>
+                        <p class="catalog-header__subtitle">
+                            Explora nuestra colección de <span id="total-products">120</span> productos premium
+                        </p>
+                    </div>
+                    <div class="catalog-header__actions">
+                        <button class="btn btn--outline btn--icon" id="filter-toggle-mobile" aria-label="Mostrar filtros">
+                            <i class="fas fa-filter"></i>
+                            <span>Filtros</span>
+                        </button>
+                        <div class="view-toggle">
+                            <button class="view-toggle__btn active" data-view="grid" aria-label="Vista en grilla">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="view-toggle__btn" data-view="list" aria-label="Vista en lista">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog Content -->
+        <section class="catalog-content">
+            <div class="container">
+                <div class="catalog-layout">
+                    <!-- SIDEBAR - FILTROS -->
+                    <aside class="catalog-sidebar" id="catalog-sidebar" role="complementary" aria-label="Filtros de búsqueda">
+                        <div class="catalog-sidebar__header">
+                            <h2 class="catalog-sidebar__title">
+                                <i class="fas fa-sliders-h"></i>
+                                Filtros
+                            </h2>
+                            <button class="catalog-sidebar__close" id="filter-close-mobile" aria-label="Cerrar filtros">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <div class="catalog-sidebar__content">
+                            <!-- Active Filters -->
+                            <div class="active-filters" id="active-filters">
+                                <div class="active-filters__header">
+                                    <span class="active-filters__title">Filtros activos:</span>
+                                    <button class="active-filters__clear" id="clear-filters">
+                                        Limpiar todo
+                                    </button>
+                                </div>
+                                <div class="active-filters__list" id="active-filters-list">
+                                    <!-- Se llena dinámicamente -->
+                                </div>
+                            </div>
+
+                            <!-- Filter: Categoría -->
+                            <div class="filter-group">
+                                <button class="filter-group__header" data-filter="category">
+                                    <h3 class="filter-group__title">
+                                        <i class="fas fa-th-large"></i>
+                                        Categoría
+                                    </h3>
+                                    <i class="fas fa-chevron-down filter-group__icon"></i>
+                                </button>
+                                <div class="filter-group__content active">
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="category" value="cervezas" data-count="45">
+                                        <span class="filter-checkbox__label">
+                                            <i class="fas fa-beer"></i>
+                                            Cervezas
+                                        </span>
+                                        <span class="filter-checkbox__count">(45)</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="category" value="vinos" data-count="30">
+                                        <span class="filter-checkbox__label">
+                                            <i class="fas fa-wine-glass"></i>
+                                            Vinos
+                                        </span>
+                                        <span class="filter-checkbox__count">(30)</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="category" value="ron" data-count="25">
+                                        <span class="filter-checkbox__label">
+                                            <i class="fas fa-cocktail"></i>
+                                            Ron
+                                        </span>
+                                        <span class="filter-checkbox__count">(25)</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="category" value="whisky" data-count="20">
+                                        <span class="filter-checkbox__label">
+                                            <i class="fas fa-glass-whiskey"></i>
+                                            Whisky
+                                        </span>
+                                        <span class="filter-checkbox__count">(20)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Filter: Rango de Precio -->
+                            <div class="filter-group">
+                                <button class="filter-group__header" data-filter="price">
+                                    <h3 class="filter-group__title">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        Rango de Precio
+                                    </h3>
+                                    <i class="fas fa-chevron-down filter-group__icon"></i>
+                                </button>
+                                <div class="filter-group__content active">
+                                    <div class="price-range">
+                                        <div class="price-range__inputs">
+                                            <input type="number" id="price-min" placeholder="Min" min="0" value="0">
+                                            <span>-</span>
+                                            <input type="number" id="price-max" placeholder="Max" min="0" value="100">
+                                        </div>
+                                        <input type="range" id="price-slider" min="0" max="200" step="5" value="100" class="price-range__slider">
+                                        <div class="price-range__labels">
+                                            <span>$0</span>
+                                            <span>$200+</span>
+                                        </div>
+                                    </div>
+                                    <label class="filter-checkbox">
+                                        <input type="radio" name="price-range" value="0-20">
+                                        <span class="filter-checkbox__label">$ Económico (0-20)</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="radio" name="price-range" value="20-50">
+                                        <span class="filter-checkbox__label">$$ Medio (20-50)</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="radio" name="price-range" value="50-100">
+                                        <span class="filter-checkbox__label">$$$ Premium (50-100)</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="radio" name="price-range" value="100+">
+                                        <span class="filter-checkbox__label">$$$$ Luxury (100+)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Filter: Marca -->
+                            <div class="filter-group">
+                                <button class="filter-group__header" data-filter="brand">
+                                    <h3 class="filter-group__title">
+                                        <i class="fas fa-tag"></i>
+                                        Marca
+                                    </h3>
+                                    <i class="fas fa-chevron-down filter-group__icon"></i>
+                                </button>
+                                <div class="filter-group__content">
+                                    <div class="filter-search">
+                                        <input type="text" placeholder="Buscar marca..." class="filter-search__input">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="brand" value="pilsener">
+                                        <span class="filter-checkbox__label">Pilsener</span>
+                                        <span class="filter-checkbox__count">(15)</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="brand" value="corona">
+                                        <span class="filter-checkbox__label">Corona</span>
+                                        <span class="filter-checkbox__count">(8)</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="brand" value="johnnie-walker">
+                                        <span class="filter-checkbox__label">Johnnie Walker</span>
+                                        <span class="filter-checkbox__count">(12)</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="brand" value="bacardi">
+                                        <span class="filter-checkbox__label">Bacardi</span>
+                                        <span class="filter-checkbox__count">(10)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Filter: Grado Alcohólico -->
+                            <div class="filter-group">
+                                <button class="filter-group__header" data-filter="alcohol">
+                                    <h3 class="filter-group__title">
+                                        <i class="fas fa-percentage"></i>
+                                        Grado Alcohólico
+                                    </h3>
+                                    <i class="fas fa-chevron-down filter-group__icon"></i>
+                                </button>
+                                <div class="filter-group__content">
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="alcohol" value="0-5">
+                                        <span class="filter-checkbox__label">0-5% (Suave)</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="alcohol" value="5-10">
+                                        <span class="filter-checkbox__label">5-10% (Moderado)</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="alcohol" value="10-20">
+                                        <span class="filter-checkbox__label">10-20% (Medio)</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="alcohol" value="20+">
+                                        <span class="filter-checkbox__label">20%+ (Fuerte)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Filter: Volumen -->
+                            <div class="filter-group">
+                                <button class="filter-group__header" data-filter="volume">
+                                    <h3 class="filter-group__title">
+                                        <i class="fas fa-fill-drip"></i>
+                                        Volumen
+                                    </h3>
+                                    <i class="fas fa-chevron-down filter-group__icon"></i>
+                                </button>
+                                <div class="filter-group__content">
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="volume" value="330">
+                                        <span class="filter-checkbox__label">330ml</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="volume" value="500">
+                                        <span class="filter-checkbox__label">500ml</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="volume" value="750">
+                                        <span class="filter-checkbox__label">750ml</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="volume" value="1000">
+                                        <span class="filter-checkbox__label">1L</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Filter: País de Origen -->
+                            <div class="filter-group">
+                                <button class="filter-group__header" data-filter="origin">
+                                    <h3 class="filter-group__title">
+                                        <i class="fas fa-globe-americas"></i>
+                                        País de Origen
+                                    </h3>
+                                    <i class="fas fa-chevron-down filter-group__icon"></i>
+                                </button>
+                                <div class="filter-group__content">
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="origin" value="ecuador">
+                                        <span class="filter-checkbox__label">🇪🇨 Ecuador</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="origin" value="chile">
+                                        <span class="filter-checkbox__label">🇨🇱 Chile</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="origin" value="argentina">
+                                        <span class="filter-checkbox__label">🇦🇷 Argentina</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="origin" value="mexico">
+                                        <span class="filter-checkbox__label">🇲🇽 México</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="origin" value="escocia">
+                                        <span class="filter-checkbox__label">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Filter: Estado/Disponibilidad -->
+                            <div class="filter-group">
+                                <button class="filter-group__header" data-filter="availability">
+                                    <h3 class="filter-group__title">
+                                        <i class="fas fa-box-open"></i>
+                                        Disponibilidad
+                                    </h3>
+                                    <i class="fas fa-chevron-down filter-group__icon"></i>
+                                </button>
+                                <div class="filter-group__content">
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="availability" value="in-stock" checked>
+                                        <span class="filter-checkbox__label">En Stock</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="availability" value="promotion">
+                                        <span class="filter-checkbox__label">En Promoción</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="availability" value="new">
+                                        <span class="filter-checkbox__label">Nuevos</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Filter: Ordenar por -->
+                            <div class="filter-group">
+                                <button class="filter-group__header" data-filter="sort">
+                                    <h3 class="filter-group__title">
+                                        <i class="fas fa-sort-amount-down"></i>
+                                        Ordenar por
+                                    </h3>
+                                    <i class="fas fa-chevron-down filter-group__icon"></i>
+                                </button>
+                                <div class="filter-group__content active">
+                                    <label class="filter-radio">
+                                        <input type="radio" name="sort" value="popularity" checked>
+                                        <span class="filter-radio__label">Más Populares</span>
+                                    </label>
+                                    <label class="filter-radio">
+                                        <input type="radio" name="sort" value="newest">
+                                        <span class="filter-radio__label">Más Recientes</span>
+                                    </label>
+                                    <label class="filter-radio">
+                                        <input type="radio" name="sort" value="price-asc">
+                                        <span class="filter-radio__label">Precio: Menor a Mayor</span>
+                                    </label>
+                                    <label class="filter-radio">
+                                        <input type="radio" name="sort" value="price-desc">
+                                        <span class="filter-radio__label">Precio: Mayor a Menor</span>
+                                    </label>
+                                    <label class="filter-radio">
+                                        <input type="radio" name="sort" value="rating">
+                                        <span class="filter-radio__label">Mejor Valorados</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="catalog-sidebar__footer">
+                            <button class="btn btn--primary btn--block" id="apply-filters">
+                                <i class="fas fa-check"></i>
+                                Aplicar Filtros
+                            </button>
+                        </div>
+                    </aside>
+
+                    <!-- PRODUCTS GRID -->
+                    <div class="catalog-main">
+                        <!-- Sort & Results Bar -->
+                        <div class="catalog-toolbar">
+                            <div class="catalog-toolbar__results">
+                                Mostrando <strong id="showing-count">1-12</strong> de <strong id="total-count">120</strong> productos
+                            </div>
+                            <div class="catalog-toolbar__sort">
+                                <label for="quick-sort">Ordenar:</label>
+                                <select id="quick-sort" class="catalog-toolbar__select">
+                                    <option value="popularity">Más Populares</option>
+                                    <option value="newest">Más Recientes</option>
+                                    <option value="price-asc">Precio: Menor a Mayor</option>
+                                    <option value="price-desc">Precio: Mayor a Menor</option>
+                                    <option value="rating">Mejor Valorados</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Products Grid (4-2-1 columns) -->
+                        <div class="products-grid" id="products-grid">
+                            <!-- Los productos se cargan dinámicamente desde JavaScript -->
+                            <!-- Ejemplo de producto: -->
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="pagination">
+                            <button class="pagination__btn pagination__btn--prev" aria-label="Página anterior">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="pagination__btn active">1</button>
+                            <button class="pagination__btn">2</button>
+                            <button class="pagination__btn">3</button>
+                            <span class="pagination__dots">...</span>
+                            <button class="pagination__btn">10</button>
+                            <button class="pagination__btn pagination__btn--next" aria-label="Página siguiente">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal: Detalle del Producto -->
+    <div class="modal modal--large" id="product-detail-modal" role="dialog" aria-labelledby="product-detail-title" aria-modal="true">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__container modal__container--product">
+            <button class="modal__close" data-close-modal aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal__content product-detail" id="product-detail-content">
+                <!-- Se llena dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER (incluir el mismo footer de index.html) -->
+    <!-- Por brevedad, solo incluyo la referencia -->
+    <footer class="footer" role="contentinfo">
+        <!-- ... (mismo footer del index.html) ... -->
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/51987654321?text=Hola,%20tengo%20una%20consulta%20sobre%20productos" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener"
+       aria-label="Chatear por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../scripts/scripts.js"></script>
+    <script src="../scripts/catalog.js"></script>
+</body>
+</html>

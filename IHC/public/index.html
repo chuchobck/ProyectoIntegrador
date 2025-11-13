@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda online de licores premium - Vinos, whiskies y destilados de alta calidad">
+    <meta name="author" content="Tu Nombre">
+    <meta name="keywords" content="licores, vinos, whisky, destilados, tienda online, bebidas premium">
+    <meta name="robots" content="index, follow">
+    <title>LicorPremium - Tienda Online de Licores Premium</title>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/auth-simple.css">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" role="banner">
+        <!-- Main Header -->
+        <nav class="header-main" role="navigation" aria-label="Navegación principal">
+            <div class="container">
+                <div class="header-main__wrapper">
+                    <!-- Logo -->
+                    <div class="header-main__logo">
+                        <a href="index.html" class="logo" aria-label="Ir a inicio" title="Volver al inicio">
+                            <i class="fas fa-wine-glass-alt logo__icon"></i>
+                            <span class="logo__text">LicorPremium</span>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="header-main__search">
+                        <form class="search-form" role="search" aria-label="Buscar productos">
+                            <input 
+                                type="text" 
+                                class="search-form__input" 
+                                placeholder="Buscar licores, marcas..." 
+                                aria-label="Campo de búsqueda"
+                                title="Buscar productos por nombre o marca"
+                            >
+                            <button type="submit" class="search-form__btn" aria-label="Buscar" title="Buscar">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="header-main__actions">
+                        <!-- Theme Toggle - PRIMER LUGAR -->
+                        <button 
+                            class="header-action theme-toggle" 
+                            id="theme-toggle"
+                            aria-label="Cambiar tema"
+                            title="Cambiar entre modo claro y oscuro"
+                        >
+                            <i class="fas fa-moon theme-toggle__icon theme-toggle__icon--dark"></i>
+                            <i class="fas fa-sun theme-toggle__icon theme-toggle__icon--light"></i>
+                        </button>
+
+                        <button 
+                            class="header-action" 
+                            aria-label="Lista de deseos" 
+                            id="wishlist-btn"
+                            title="Mis productos favoritos"
+                        >
+                            <i class="fas fa-heart"></i>
+                            <span class="header-action__badge">0</span>
+                            <span class="header-action__text">Deseos</span>
+                        </button>
+
+                        <a 
+                            href="#"
+                            class="header-action" 
+                            aria-label="Rastrear pedido"
+                            title="Rastrear mi pedido"
+                        >
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="header-action__text">Rastrear</span>
+                        </a>
+
+                        <button 
+                            class="header-action" 
+                            aria-label="Mi cuenta" 
+                            id="account-btn"
+                            aria-expanded="false"
+                            title="Iniciar sesión o crear cuenta"
+                        >
+                            <i class="fas fa-user"></i>
+                            <span class="header-action__text">Cuenta</span>
+                        </button>
+
+                        <a 
+                            href="carrito.html"
+                            class="header-action header-action--cart" 
+                            aria-label="Carrito de compras" 
+                            id="cart-btn"
+                            title="Ver mi carrito de compras"
+                        >
+                            <i class="fas fa-shopping-cart"></i>    
+                            <span class="header-action__badge" id="cart-count">0</span>
+                            <span class="header-action__text">Carrito</span>
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button 
+                        class="header-main__toggle" 
+                        id="menu-toggle" 
+                        aria-label="Abrir menú" 
+                        aria-expanded="false"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Category Navigation -->
+        <nav class="header-categories" id="header-categories" role="navigation" aria-label="Navegación principal y categorías">
+            <div class="container">
+                <ul class="categories-list">
+                    <li class="categories-list__item">
+                        <a href="index.html" class="categories-list__link" aria-current="page">
+                            <i class="fas fa-home"></i>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li class="categories-list__item categories-list__item--dropdown">
+                        <a href="catalogo.html" class="categories-list__link" id="categorias-dropdown">
+                            <i class="fas fa-wine-bottle"></i>
+                            <span>Catálogo</span>
+                            <i class="fas fa-chevron-down categories-list__arrow"></i>
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <div class="categories-dropdown" id="categorias-dropdown-menu">
+                            <div class="categories-dropdown__content">
+                                <a href="catalogo.html?cat=vinos" class="categories-dropdown__link">
+                                    <i class="fas fa-wine-glass"></i> Vinos
+                                </a>
+                                <a href="catalogo.html?cat=whisky" class="categories-dropdown__link">
+                                    <i class="fas fa-glass-whiskey"></i> Whiskies
+                                </a>
+                                <a href="catalogo.html?cat=ron" class="categories-dropdown__link">
+                                    <i class="fas fa-cocktail"></i> Ron
+                                </a>
+                                <a href="catalogo.html?cat=vodka" class="categories-dropdown__link">
+                                    <i class="fas fa-fill-drip"></i> Vodka
+                                </a>
+                                <a href="catalogo.html?cat=ginebra" class="categories-dropdown__link">
+                                    <i class="fas fa-glass-martini-alt"></i> Ginebra
+                                </a>
+                                <a href="catalogo.html?cat=cervezas" class="categories-dropdown__link">
+                                    <i class="fas fa-beer"></i> Cervezas
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="categories-list__item">
+                        <a href="acerca.html" class="categories-list__link">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Acerca de Nosotros</span>
+                        </a>
+                    </li>
+                    <li class="categories-list__item">
+                        <a href="contacto.html" class="categories-list__link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contacto</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main" class="main-content">
+        <!-- Hero Section REDISEÑADO -->
+        <section class="hero-premium fullpage-section" id="home">
+            <div class="hero-premium__background"></div>
+            <div class="hero-premium__overlay"></div>
+            
+            <!-- Animated particles -->
+            <div class="hero-premium__particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+
+            <div class="container">
+                <div class="hero-premium__content">
+                    <!-- Badge exclusivo -->
+                    <div class="hero-premium__badge">
+                        <i class="fas fa-crown"></i>
+                        <span>Colección Premium 2025</span>
+                    </div>
+
+                    <!-- Título principal -->
+                    <h1 class="hero-premium__title">
+                        <span class="hero-premium__title-accent">Descubre</span>
+                        <span class="hero-premium__title-main">Sabores<br>Extraordinarios</span>
+                    </h1>
+
+                    <!-- Subtítulo -->
+                    <p class="hero-premium__subtitle">
+                        Destilados excepcionales, vinos selectos y cervezas artesanales.<br>
+                        <strong>Envío gratis</strong> en compras mayores a $50
+                    </p>
+
+                    <!-- CTAs principales -->
+                    <div class="hero-premium__actions">
+                        <a href="catalogo.html" class="hero-cta hero-cta--primary">
+                            <span class="hero-cta__text">Explorar Catálogo</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="catalogo.html?cat=promociones" class="hero-cta hero-cta--secondary">
+                            <i class="fas fa-tag"></i>
+                            <span class="hero-cta__text">Ver Ofertas</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust indicators con iconos modernos -->
+                    <div class="hero-premium__features">
+                        <div class="hero-feature">
+                            <div class="hero-feature__icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <div class="hero-feature__text">
+                                <strong>Envío Express</strong>
+                                <span>24-48 horas</span>
+                            </div>
+                        </div>
+                        <div class="hero-feature">
+                            <div class="hero-feature__icon">
+                                <i class="fas fa-shield-check"></i>
+                            </div>
+                            <div class="hero-feature__text">
+                                <strong>100% Auténtico</strong>
+                                <span>Productos certificados</span>
+                            </div>
+                        </div>
+                        <div class="hero-feature">
+                            <div class="hero-feature__icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="hero-feature__text">
+                                <strong>+5000 Clientes</strong>
+                                <span>Satisfechos</span>
+                            </div>
+                        </div>
+                        <div class="hero-feature">
+                            <div class="hero-feature__icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="hero-feature__text">
+                                <strong>Pago Seguro</strong>
+                                <span>SSL Certificado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scroll indicator -->
+                    <a href="#categorias" class="hero-premium__scroll">
+                        <span>Ver más</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Categories -->
+        <section class="section featured-categories fullpage-section" id="categorias">
+            <div class="container">
+                <h2 class="section__title">Explora Nuestras Categorías</h2>
+                <p class="section__subtitle">Descubre nuestra selección curada de bebidas premium</p>
+                
+                <div class="categories-grid">
+                    <a href="catalogo.html?cat=vinos" class="category-card">
+                        <div class="category-card__icon">
+                            <i class="fas fa-wine-glass"></i>
+                        </div>
+                        <h3 class="category-card__title">Vinos</h3>
+                        <p class="category-card__desc">Tintos, blancos y rosados de las mejores viñas</p>
+                        <span class="category-card__cta">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="catalogo.html?cat=whiskies" class="category-card">
+                        <div class="category-card__icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <h3 class="category-card__title">Whiskies</h3>
+                        <p class="category-card__desc">Single malt y blends excepcionales</p>
+                        <span class="category-card__cta">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="catalogo.html?cat=ron" class="category-card">
+                        <div class="category-card__icon">
+                            <i class="fas fa-cocktail"></i>
+                        </div>
+                        <h3 class="category-card__title">Ron</h3>
+                        <p class="category-card__desc">Añejos y especiados del Caribe</p>
+                        <span class="category-card__cta">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="catalogo.html?cat=cervezas" class="category-card">
+                        <div class="category-card__icon">
+                            <i class="fas fa-beer"></i>
+                        </div>
+                        <h3 class="category-card__title">Cervezas</h3>
+                        <p class="category-card__desc">Artesanales e importadas</p>
+                        <span class="category-card__cta">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+                
+                <!-- Botón siguiente sección -->
+                <a href="#preguntas" class="section-nav-btn">
+                    <span>Siguiente</span>
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section fullpage-section" id="preguntas">
+            <div class="container">
+                <div class="faq-header">
+                    <h2 class="section-title">Preguntas Frecuentes</h2>
+                    <p class="section-subtitle">Encuentra respuestas rápidas a las consultas más comunes</p>
+                </div>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            <h3>¿Cuál es el monto mínimo de compra?</h3>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                No tenemos monto mínimo de compra. Sin embargo, para envíos GRATIS, el pedido debe ser de $50 o más. Compras menores tienen un costo de envío desde $5.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            <h3>¿Cómo verifican mi edad?</h3>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Al momento de la entrega, nuestro personal solicitará tu cédula o documento de identidad para verificar que eres mayor de 18 años. Es requisito obligatorio por ley. Si no cumples con la edad requerida, no se realizará la entrega.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            <h3>¿Qué métodos de pago aceptan?</h3>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Aceptamos tarjetas de crédito/débito (Visa, Mastercard, American Express), transferencias bancarias, billeteras digitales y efectivo contra entrega (solo para Quito, Guayaquil y Cuenca). Todos los pagos online son 100% seguros.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            <h3>¿Puedo devolver un producto?</h3>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Aceptamos devoluciones solo si el producto llegó dañado, defectuoso o no corresponde a tu pedido. Tienes 48 horas desde la recepción para reportar el inconveniente. Por regulaciones sanitarias, no aceptamos devoluciones de productos abiertos o en buen estado.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            <h3>¿Ofrecen descuentos por compras al mayoreo?</h3>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Sí, ofrecemos precios especiales para compras mayoristas (cajas completas, pedidos corporativos, eventos). Contáctanos al email <strong>mayoristas@licorpremium.ec</strong> o vía WhatsApp para recibir una cotización personalizada.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            <h3>¿Cómo rastrea mi pedido?</h3>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Una vez despachado tu pedido, recibirás un código de seguimiento por email y SMS. Puedes rastrearlo en nuestra página web o contactarnos vía WhatsApp. También te notificaremos cuando esté en camino y próximo a llegar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-cta">
+                    <p>¿No encontraste la respuesta que buscabas?</p>
+                    <a href="https://wa.me/593987654321" class="btn btn--primary" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i>
+                        Contáctanos por WhatsApp
+                    </a>
+                </div>
+                
+                <!-- Botón siguiente sección -->
+                <a href="#nosotros" class="section-nav-btn">
+                    <span>Siguiente</span>
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="section why-us fullpage-section" id="nosotros">
+            <div class="container">
+                <h2 class="section__title">¿Por Qué Elegirnos?</h2>
+                <div class="why-us-grid">
+                    <div class="why-us-card">
+                        <div class="why-us-card__icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="why-us-card__title">Calidad Garantizada</h3>
+                        <p class="why-us-card__text">
+                            Todos nuestros productos son 100% auténticos y provienen<br>
+                            directamente de distribuidores autorizados.
+                        </p>
+                    </div>
+                    <div class="why-us-card">
+                        <div class="why-us-card__icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3 class="why-us-card__title">Envío Rápido</h3>
+                        <p class="why-us-card__text">
+                            Entrega en 24-48 horas con embalaje especial para<br>
+                            proteger tus botellas.
+                        </p>
+                    </div>
+                    <div class="why-us-card">
+                        <div class="why-us-card__icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="why-us-card__title">Atención 24/7</h3>
+                        <p class="why-us-card__text">
+                            Soporte constante vía WhatsApp, email y teléfono para<br>
+                            resolver todas tus dudas.
+                        </p>
+                    </div>
+                    <div class="why-us-card">
+                        <div class="why-us-card__icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3 class="why-us-card__title">Pago Seguro</h3>
+                        <p class="why-us-card__text">
+                            Transacciones protegidas con SSL y múltiples métodos de<br>
+                            pago disponibles.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Botón siguiente sección -->
+                <a href="#ofertas" class="section-nav-btn">
+                    <span>Siguiente</span>
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section cta-section fullpage-section" id="ofertas">
+            <div class="container">
+                <div class="cta-box">
+                    <div class="cta-box__content">
+                        <h2 class="cta-box__title">¿Listo para disfrutar?</h2>
+                        <p class="cta-box__text">
+                            Explora nuestro catálogo completo y encuentra tus bebidas<br>
+                            favoritas
+                        </p>
+                    </div>
+                    <div class="cta-box__actions">
+                        <a href="catalogo.html" class="btn btn--primary btn--lg">
+                            <i class="fas fa-wine-bottle"></i>
+                            Ir al Catálogo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODALES / VENTANAS DE DIÁLOGO -->
+    
+    <!-- Modal: Verificación de Edad (+18) -->
+    <div class="modal" id="age-verification-modal" role="dialog" aria-labelledby="age-modal-title" aria-modal="true">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__container">
+            <button class="modal__close" data-close-modal aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal__content">
+                <div class="modal__icon modal__icon--warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h2 class="modal__title" id="age-modal-title">Verificación de Edad</h2>
+                <p class="modal__text">
+                    Este sitio contiene productos alcohólicos.<br>
+                    <strong>Debes ser mayor de 18 años</strong> para acceder.
+                </p>
+                <form class="age-form" id="age-verification-form">
+                    <div class="age-form__field">
+                        <label for="birth-date" class="age-form__label">Fecha de Nacimiento:</label>
+                        <input 
+                            type="date" 
+                            id="birth-date" 
+                            class="age-form__input"
+                            max="2007-12-31"
+                            required
+                            aria-required="true"
+                        >
+                    </div>
+                    <div class="age-form__checkbox">
+                        <input type="checkbox" id="age-confirm" required>
+                        <label for="age-confirm">Confirmo que soy mayor de 18 años</label>
+                    </div>
+                    <div class="modal__actions">
+                        <button type="submit" class="btn btn--primary btn--block">
+                            <i class="fas fa-check"></i>
+                            Verificar y Continuar
+                        </button>
+                        <button type="button" class="btn btn--outline btn--block" data-close-modal>
+                            <i class="fas fa-times"></i>
+                            Soy menor de edad
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Login / Registro SIMPLIFICADO -->
+    <div class="modal" id="auth-modal" role="dialog" aria-labelledby="auth-modal-title" aria-modal="true">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__container modal__container--simple">
+            <button class="modal__close" data-close-modal aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="auth-wrapper">
+                <!-- Toggle Tabs Superior -->
+                <div class="auth-toggle">
+                    <button class="auth-toggle__btn active" data-auth-tab="login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Iniciar Sesión
+                    </button>
+                    <button class="auth-toggle__btn" data-auth-tab="register">
+                        <i class="fas fa-user-plus"></i>
+                        Crear Cuenta
+                    </button>
+                </div>
+
+                <!-- Formulario de Login -->
+                <div class="auth-content" id="login-content">
+                    <div class="auth-header">
+                        <i class="fas fa-wine-glass-alt auth-icon"></i>
+                        <h2 class="auth-title">Bienvenido de vuelta</h2>
+                    </div>
+
+                    <form class="auth-form" id="login-form">
+                        <div class="form-group">
+                            <label for="login-email" class="form-label">
+                                <i class="fas fa-envelope"></i>
+                                Correo Electrónico
+                            </label>
+                            <input 
+                                type="email" 
+                                id="login-email" 
+                                class="form-input"
+                                placeholder="tu@email.com"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="login-password" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                Contraseña
+                            </label>
+                            <div class="form-input-group">
+                                <input 
+                                    type="password" 
+                                    id="login-password" 
+                                    class="form-input"
+                                    placeholder="••••••••"
+                                    required
+                                >
+                                <button type="button" class="form-input-icon toggle-password-btn" data-target="login-password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary btn--block btn--lg">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Iniciar Sesión
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Formulario de Registro -->
+                <div class="auth-content hidden" id="register-content">
+                    <div class="auth-header">
+                        <i class="fas fa-user-plus auth-icon"></i>
+                        <h2 class="auth-title">Crear una cuenta</h2>
+                    </div>
+
+                    <form class="auth-form" id="register-form">
+                        <div class="form-group">
+                            <label for="register-name" class="form-label">
+                                <i class="fas fa-user"></i>
+                                Nombre
+                            </label>
+                            <input 
+                                type="text" 
+                                id="register-name" 
+                                class="form-input"
+                                placeholder="Juan Pérez"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-email" class="form-label">
+                                <i class="fas fa-envelope"></i>
+                                Correo Electrónico
+                            </label>
+                            <input 
+                                type="email" 
+                                id="register-email" 
+                                class="form-input"
+                                placeholder="tu@email.com"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-password" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                Contraseña
+                            </label>
+                            <div class="form-input-group">
+                                <input 
+                                    type="password" 
+                                    id="register-password" 
+                                    class="form-input"
+                                    placeholder="Mínimo 6 caracteres"
+                                    required
+                                    minlength="6"
+                                >
+                                <button type="button" class="form-input-icon toggle-password-btn" data-target="register-password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-checkbox form-checkbox--required">
+                                <input type="checkbox" id="register-age" name="age" required>
+                                <span>Soy mayor de 18 años</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary btn--block btn--lg">
+                            <i class="fas fa-user-plus"></i>
+                            Crear Cuenta
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Recuperar Contraseña -->
+    <div class="modal" id="forgot-password-modal" role="dialog" aria-labelledby="forgot-modal-title" aria-modal="true">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__container modal__container--sm">
+            <button class="modal__close" data-close-modal aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal__content">
+                <div class="modal__icon modal__icon--info">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h2 class="modal__title" id="forgot-modal-title">Recuperar Contraseña</h2>
+                <p class="modal__text">
+                    Ingresa tu correo electrónico y te enviaremos un enlace temporal para restablecer tu contraseña.
+                </p>
+                <form class="forgot-password-form" id="forgot-password-form">
+                    <div class="form-group">
+                        <label for="forgot-email" class="form-label">
+                            <i class="fas fa-envelope"></i>
+                            Correo Electrónico
+                        </label>
+                        <input 
+                            type="email" 
+                            id="forgot-email" 
+                            class="form-input"
+                            placeholder="tu@email.com"
+                            required
+                        >
+                    </div>
+                    <div class="modal__actions">
+                        <button type="submit" class="btn btn--primary btn--block">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Enlace
+                        </button>
+                        <button type="button" class="btn btn--text btn--block" data-close-modal>
+                            Volver al inicio de sesión
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Confirmación Genérica -->
+    <div class="modal" id="confirm-modal" role="dialog" aria-labelledby="confirm-modal-title" aria-modal="true">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__container modal__container--sm">
+            <button class="modal__close" data-close-modal aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal__content">
+                <div class="modal__icon modal__icon--question">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <h2 class="modal__title" id="confirm-modal-title">¿Estás seguro?</h2>
+                <p class="modal__text" id="confirm-modal-text">Esta acción no se puede deshacer.</p>
+                <div class="modal__actions">
+                    <button type="button" class="btn btn--primary" id="confirm-btn">
+                        <i class="fas fa-check"></i>
+                        Confirmar
+                    </button>
+                    <button type="button" class="btn btn--outline" data-close-modal>
+                        <i class="fas fa-times"></i>
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <!-- FOOTER OPTIMIZADO -->
+    <footer class="footer" role="contentinfo">
+        <!-- Age Verification Banner -->
+        <div class="footer-age-banner">
+            <div class="container">
+                <div class="age-banner">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p><strong>VENTA RESPONSABLE:</strong> Prohibida la venta a menores de 18 años. Bebe con moderación.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Badges - REDUCIDOS DE 5 A 3 -->
+        <div class="footer-badges">
+            <div class="container">
+                <div class="badges-grid">
+                    <div class="badge-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <h4>Envío 24-48 horas</h4>
+                        </div>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>Soporte 24/7</h4>
+                        </div>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <h4>Pago Seguro</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Footer Content - SIMPLIFICADO -->
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Column 1: Brand & Contact -->
+                    <div class="footer-col">
+                        <a href="index.html" class="footer-logo">
+                            <i class="fas fa-wine-glass-alt"></i>
+                            <span>LicorPremium</span>
+                        </a>
+                        <p class="footer-tagline">Bebidas premium desde 2020</p>
+
+                        <ul class="contact-list">
+                            <li>
+                                <i class="fab fa-whatsapp"></i>
+                                <a href="https://wa.me/593987654321" target="_blank">+593 987 654 321</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:soporte@licorpremium.ec">soporte@licorpremium.ec</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span>Lun-Sáb: 9AM-10PM | Dom: 10AM-8PM</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 2: Quick Links -->
+                    <div class="footer-col">
+                        <h3 class="footer-title">Categorías</h3>
+                        <ul class="footer-list">
+                            <li><a href="catalogo.html?cat=vinos">Vinos</a></li>
+                            <li><a href="catalogo.html?cat=licores">Licores</a></li>
+                            <li><a href="catalogo.html?cat=cervezas">Cervezas</a></li>
+                            <li><a href="catalogo.html?cat=whisky">Whisky & Ron</a></li>
+                            <li><a href="catalogo.html?cat=promociones" class="footer-link--highlight">Promociones</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: Policies -->
+                    <div class="footer-col">
+                        <h3 class="footer-title">Ayuda</h3>
+                        <ul class="footer-list">
+                            <li><a href="contacto.html#envios">Envíos</a></li>
+                            <li><a href="contacto.html#devoluciones">Devoluciones</a></li>
+                            <li><a href="contacto.html#rastrear">Rastrear Pedido</a></li>
+                            <li><a href="#faq">Preguntas Frecuentes</a></li>
+                            <li><a href="acerca.html#terminos">Términos y Condiciones</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 4: Newsletter & Social -->
+                    <div class="footer-col">
+                        <h3 class="footer-title">Newsletter</h3>
+                        <p class="footer-newsletter__text">Recibe ofertas exclusivas</p>
+                        
+                        <form class="newsletter-form" id="newsletter-form">
+                            <input 
+                                type="email" 
+                                class="newsletter-form__input" 
+                                placeholder="Tu email"
+                                required
+                            >
+                            <label class="newsletter-checkbox">
+                                <input type="checkbox" required>
+                                <span>Soy mayor de 18 años</span>
+                            </label>
+                            <button type="submit" class="newsletter-form__btn">
+                                <i class="fas fa-paper-plane"></i> Suscribirme
+                            </button>
+                        </form>
+
+                        <!-- Social Media -->
+                        <div class="footer-social">
+                            <h4>Síguenos</h4>
+                            <div class="social-links">
+                                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Methods - SIMPLIFICADO -->
+        <div class="footer-payments">
+            <div class="container">
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fas fa-credit-card" title="Tarjetas"></i>
+                    <i class="fas fa-university" title="Transferencia"></i>
+                    <i class="fas fa-wallet" title="Billetera Digital"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom__content">
+                    <p>&copy; 2020-2025 <strong>LicorPremium</strong>. Todos los derechos reservados. Venta prohibida a menores de 18 años.</p>
+                    <a href="#main-content" class="back-to-top">
+                        <i class="fas fa-arrow-up"></i> Arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/51987654321?text=Hola,%20tengo%20una%20consulta%20sobre%20productos" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener"
+       aria-label="Chatear por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Aviso de cookies">
+        <div class="cookie-banner__content">
+            <div class="cookie-banner__text">
+                <i class="fas fa-cookie-bite"></i>
+                <p>
+                    <strong>Usamos cookies</strong> para mejorar tu experiencia. También verificamos tu edad (18+) para cumplir con las regulaciones. 
+                    <a href="#privacidad" class="cookie-banner__link">Más información</a>
+                </p>
+            </div>
+            <div class="cookie-banner__actions">
+                <button class="cookie-banner__btn cookie-banner__btn--accept" id="accept-cookies">
+                    Aceptar todo
+                </button>
+                <button class="cookie-banner__btn cookie-banner__btn--reject" id="reject-cookies">
+                    Solo necesarias
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Login/Registro -->
+    <div id="authModal" class="auth-modal">
+        <div class="auth-modal__content">
+            <button class="auth-modal__close" id="closeAuthModal">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Tabs -->
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Iniciar Sesión</button>
+                <button class="auth-tab" data-tab="registro">Registrarse</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginForm" class="auth-form active">
+                <h2><i class="fas fa-sign-in-alt"></i> Bienvenido</h2>
+                <p class="auth-subtitle">Ingresa tus credenciales para continuar</p>
+
+                <form id="formLogin">
+                    <div class="form-group-auth">
+                        <label for="loginEmail">
+                            <i class="fas fa-envelope"></i> Correo Electrónico
+                        </label>
+                        <input 
+                            type="email" 
+                            id="loginEmail" 
+                            name="email" 
+                            placeholder="tu@email.com"
+                            required
+                            autocomplete="email"
+                        >
+                        <span class="error-msg" data-field="loginEmail"></span>
+                        <small class="field-help">Debe tener un @ y al menos un punto</small>
+                    </div>
+
+                    <div class="form-group-auth">
+                        <label for="loginPassword">
+                            <i class="fas fa-lock"></i> Contraseña
+                        </label>
+                        <div class="password-input-wrapper">
+                            <input 
+                                type="password" 
+                                id="loginPassword" 
+                                name="password" 
+                                placeholder="••••••••"
+                                required
+                                autocomplete="current-password"
+                            >
+                            <button type="button" class="toggle-password" data-target="loginPassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="error-msg" data-field="loginPassword"></span>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="recordar">
+                            <span>Recordarme</span>
+                        </label>
+                        <a href="#" class="link-small">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--block">
+                        <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                    </button>
+
+                    <div class="auth-footer">
+                        <p>¿No tienes cuenta? <a href="#" class="link-primary" data-switch="registro">Regístrate aquí</a></p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Registro Form -->
+            <div id="registroForm" class="auth-form">
+                <h2><i class="fas fa-user-plus"></i> Crear Cuenta</h2>
+                <p class="auth-subtitle">Únete a nuestra comunidad premium</p>
+
+                <form id="formRegistro">
+                    <div class="form-row-auth">
+                        <div class="form-group-auth">
+                            <label for="regNombre">
+                                <i class="fas fa-user"></i> Nombre Completo
+                            </label>
+                            <input 
+                                type="text" 
+                                id="regNombre" 
+                                name="nombre" 
+                                placeholder="Juan Pérez"
+                                required
+                                minlength="3"
+                            >
+                            <span class="error-msg" data-field="regNombre"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group-auth">
+                        <label for="regEmail">
+                            <i class="fas fa-envelope"></i> Correo Electrónico
+                        </label>
+                        <input 
+                            type="email" 
+                            id="regEmail" 
+                            name="email" 
+                            placeholder="tu@email.com"
+                            required
+                            autocomplete="email"
+                        >
+                        <span class="error-msg" data-field="regEmail"></span>
+                        <small class="field-help">Solo un @ y al menos un punto después</small>
+                    </div>
+
+                    <div class="form-group-auth">
+                        <label for="regPassword">
+                            <i class="fas fa-lock"></i> Contraseña
+                        </label>
+                        <div class="password-input-wrapper">
+                            <input 
+                                type="password" 
+                                id="regPassword" 
+                                name="password" 
+                                placeholder="••••••••"
+                                required
+                                minlength="8"
+                            >
+                            <button type="button" class="toggle-password" data-target="regPassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="error-msg" data-field="regPassword"></span>
+                        <div class="password-strength" id="passwordStrength"></div>
+                        <small class="field-help">
+                            Mínimo 8 caracteres: mayúsculas, minúsculas, números y símbolos
+                        </small>
+                    </div>
+
+                    <div class="form-group-auth">
+                        <label for="regPasswordConfirm">
+                            <i class="fas fa-check-circle"></i> Confirmar Contraseña
+                        </label>
+                        <div class="password-input-wrapper">
+                            <input 
+                                type="password" 
+                                id="regPasswordConfirm" 
+                                name="passwordConfirm" 
+                                placeholder="••••••••"
+                                required
+                            >
+                            <button type="button" class="toggle-password" data-target="regPasswordConfirm">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="error-msg" data-field="regPasswordConfirm"></span>
+                    </div>
+
+                    <div class="security-tips">
+                        <i class="fas fa-shield-alt"></i>
+                        <strong>Recomendaciones de seguridad:</strong>
+                        <ul>
+                            <li>✓ Al menos 8 caracteres</li>
+                            <li>✓ Una letra mayúscula (A-Z)</li>
+                            <li>✓ Una letra minúscula (a-z)</li>
+                            <li>✓ Un número (0-9)</li>
+                            <li>✓ Un símbolo (!@#$%^&*)</li>
+                        </ul>
+                    </div>
+
+                    <div class="form-group-auth">
+                        <label class="checkbox-label-block">
+                            <input type="checkbox" name="mayorEdad" required>
+                            <span>Confirmo que soy mayor de 18 años <span class="required">*</span></span>
+                        </label>
+                    </div>
+
+                    <div class="form-group-auth">
+                        <label class="checkbox-label-block">
+                            <input type="checkbox" name="terminos" required>
+                            <span>Acepto los <a href="#" class="link-primary">términos y condiciones</a> <span class="required">*</span></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--block">
+                        <i class="fas fa-user-plus"></i> Crear Cuenta
+                    </button>
+
+                    <div class="auth-footer">
+                        <p>¿Ya tienes cuenta? <a href="#" class="link-primary" data-switch="login">Inicia sesión</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/scripts.js"></script>
+    <script src="../scripts/auth.js"></script>
+    
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const wasActive = faqItem.classList.contains('active');
+                
+                // Close all FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked FAQ if it wasn't active
+                if (!wasActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

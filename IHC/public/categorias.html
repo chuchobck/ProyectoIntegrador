@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explora todas las categorías de licores - Vinos, Whiskies, Ron, Vodka, Ginebra, Cervezas">
+    <title>Categorías - LicorPremium</title>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../styles/styles.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Hero de Categorías */
+        .categories-hero {
+            background: linear-gradient(135deg, var(--color-burdeos) 0%, var(--bg-dark) 100%);
+            padding: 4rem 0 3rem;
+            text-align: center;
+            color: white;
+        }
+
+        .categories-hero h1 {
+            font-family: var(--font-secondary);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .categories-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+
+        /* Grid de Categorías */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 3rem 0;
+        }
+
+        .category-card-large {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category-card-large:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .category-card-large__image {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .category-card-large:hover .category-card-large__image {
+            transform: scale(1.1);
+        }
+
+        .category-card-large__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            color: white;
+        }
+
+        .category-card-large__icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--color-dorado);
+        }
+
+        .category-card-large__title {
+            font-family: var(--font-secondary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-card-large__count {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .category-card-large__subcategories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .subcategory-tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-full);
+            font-size: 0.875rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* OFERTAS CARD ESPECIAL */
+        .category-card-large--featured {
+            border: 3px solid var(--color-dorado);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        .category-card-large__overlay--offers {
+            background: linear-gradient(to top, rgba(128,0,32,0.95) 0%, rgba(212,175,55,0.5) 50%, transparent 100%);
+        }
+
+        .category-card-large--featured:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--color-dorado-claro);
+        }
+
+        /* Filtros Rápidos */
+        .quick-filters {
+            background: var(--surface-card);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            margin-bottom: 2rem;
+        }
+
+        .quick-filters h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .filter-tag {
+            padding: 0.5rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-full);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-tag:hover {
+            background: var(--color-dorado);
+            color: white;
+            border-color: var(--color-dorado);
+        }
+
+        /* Acordeón de Categorías */
+        .categories-accordion {
+            background: var(--surface-card);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: var(--bg-secondary);
+        }
+
+        .accordion-header__left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            color: var(--color-dorado);
+        }
+
+        .accordion-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .accordion-count {
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+        }
+
+        .accordion-chevron {
+            transition: transform 0.3s ease;
+            color: var(--text-tertiary);
+        }
+
+        .accordion-item.active .accordion-chevron {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+
+        .accordion-subcategories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+        }
+
+        .subcategory-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: var(--surface-elevated);
+            border-radius: var(--border-radius-sm);
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .subcategory-link:hover {
+            background: var(--color-dorado);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .subcategory-link i {
+            color: var(--color-dorado);
+        }
+
+        .subcategory-link:hover i {
+            color: white;
+        }
+
+        /* Stats Section */
+        .categories-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: var(--surface-card);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-dorado);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .categories-hero h1 {
+                font-size: 2rem;
+            }
+
+            .categories-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .categories-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .accordion-subcategories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER (Reutilizar del index) -->
+    <header class="header" role="banner">
+        <!-- Top Bar -->
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top__content">
+                    <div class="header-top__left">
+                        <span class="header-top__text">Envío gratis en compras mayores a $50</span>
+                    </div>
+                    <div class="header-top__right">
+                        <a href="#" class="header-top__link" aria-label="Rastrear pedido">Rastrear Pedido</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <nav class="header-main" role="navigation">
+            <div class="container">
+                <div class="header-main__wrapper">
+                    <div class="header-main__logo">
+                        <a href="index.html" class="logo">
+                            <i class="fas fa-wine-glass-alt logo__icon"></i>
+                            <span class="logo__text">LicorPremium</span>
+                        </a>
+                    </div>
+
+                    <div class="header-main__actions">
+                        <button class="header-action" aria-label="Lista de deseos" id="wishlist-btn">
+                            <i class="fas fa-heart"></i>
+                            <span class="header-action__badge">0</span>
+                            <span class="header-action__text">Deseos</span>
+                        </button>
+
+                        <a href="#" class="header-action" aria-label="Rastrear pedido" title="Rastrear mi pedido">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="header-action__text">Rastrear</span>
+                        </a>
+
+                        <button class="header-action" id="account-btn">
+                            <i class="fas fa-user"></i>
+                            <span class="header-action__text">Cuenta</span>
+                        </button>
+
+                        <button class="header-action theme-toggle" id="theme-toggle">
+                            <i class="fas fa-moon theme-toggle__icon theme-toggle__icon--dark"></i>
+                            <i class="fas fa-sun theme-toggle__icon theme-toggle__icon--light"></i>
+                        </button>
+
+                        <a href="carrito.html" class="header-action header-action--cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="header-action__badge" id="cart-count">0</span>
+                            <span class="header-action__text">Carrito</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Navigation -->
+        <nav class="header-categories">
+            <div class="container">
+                <ul class="categories-list">
+                    <li class="categories-list__item">
+                        <a href="index.html" class="categories-list__link">
+                            <i class="fas fa-home"></i>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li class="categories-list__item categories-list__item--dropdown">
+                        <a href="catalogo.html" class="categories-list__link">
+                            <i class="fas fa-wine-bottle"></i>
+                            <span>Catálogo</span>
+                            <i class="fas fa-chevron-down categories-list__arrow"></i>
+                        </a>
+                    </li>
+                    <li class="categories-list__item">
+                        <a href="acerca.html" class="categories-list__link">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Acerca de Nosotros</span>
+                        </a>
+                    </li>
+                    <li class="categories-list__item">
+                        <a href="contacto.html" class="categories-list__link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contacto</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="categories-hero">
+        <div class="container">
+            <h1><i class="fas fa-th-large"></i> Explora Nuestras Categorías</h1>
+            <p>
+                Descubre la selección perfecta de licores para cada<br>
+                ocasión
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Stats -->
+            <section class="categories-stats">
+                <div class="stat-card">
+                    <div class="stat-number">1,250+</div>
+                    <div class="stat-label">Productos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Marcas Premium</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Países de Origen</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Atención</div>
+                </div>
+            </section>
+
+            <!-- Filtros Rápidos -->
+            <section class="quick-filters">
+                <h3><i class="fas fa-filter"></i> Filtros Rápidos</h3>
+                <div class="filter-tags">
+                    <a href="catalogo.html?ofertas=true" class="filter-tag">
+                        <i class="fas fa-tag"></i> En Oferta
+                    </a>
+                    <a href="catalogo.html?nuevos=true" class="filter-tag">
+                        <i class="fas fa-star"></i> Nuevos Productos
+                    </a>
+                    <a href="catalogo.html?origin=ecuador" class="filter-tag">
+                        🇪🇨 Productos Ecuatorianos
+                    </a>
+                    <a href="catalogo.html?price=0-20" class="filter-tag">
+                        <i class="fas fa-dollar-sign"></i> Menos de $20
+                    </a>
+                    <a href="catalogo.html?rating=4" class="filter-tag">
+                        <i class="fas fa-star"></i> 4+ Estrellas
+                    </a>
+                </div>
+            </section>
+
+            <!-- Grid de Categorías Principales -->
+            <section class="categories-grid">
+                <!-- VINOS -->
+                <a href="catalogo.html?cat=vinos" class="category-card-large">
+                    <div class="category-card-large__image" style="background-image: url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800')"></div>
+                    <div class="category-card-large__overlay">
+                        <i class="fas fa-wine-glass category-card-large__icon"></i>
+                        <h2 class="category-card-large__title">Vinos</h2>
+                        <p class="category-card-large__count">345 productos</p>
+                        <div class="category-card-large__subcategories">
+                            <span class="subcategory-tag">Tintos</span>
+                            <span class="subcategory-tag">Blancos</span>
+                            <span class="subcategory-tag">Rosados</span>
+                            <span class="subcategory-tag">Espumosos</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- WHISKIES -->
+                <a href="catalogo.html?cat=whisky" class="category-card-large">
+                    <div class="category-card-large__image" style="background-image: url('https://images.unsplash.com/photo-1527281400-e9af9cfb0b41?w=800')"></div>
+                    <div class="category-card-large__overlay">
+                        <i class="fas fa-glass-whiskey category-card-large__icon"></i>
+                        <h2 class="category-card-large__title">Whiskies</h2>
+                        <p class="category-card-large__count">180 productos</p>
+                        <div class="category-card-large__subcategories">
+                            <span class="subcategory-tag">Escocés</span>
+                            <span class="subcategory-tag">Bourbon</span>
+                            <span class="subcategory-tag">Irlandés</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- RON -->
+                <a href="catalogo.html?cat=ron" class="category-card-large">
+                    <div class="category-card-large__image" style="background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800')"></div>
+                    <div class="category-card-large__overlay">
+                        <i class="fas fa-cocktail category-card-large__icon"></i>
+                        <h2 class="category-card-large__title">Ron</h2>
+                        <p class="category-card-large__count">125 productos</p>
+                        <div class="category-card-large__subcategories">
+                            <span class="subcategory-tag">Añejo</span>
+                            <span class="subcategory-tag">Blanco</span>
+                            <span class="subcategory-tag">Spiced</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- CERVEZAS -->
+                <a href="catalogo.html?cat=cervezas" class="category-card-large">
+                    <div class="category-card-large__image" style="background-image: url('https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=800')"></div>
+                    <div class="category-card-large__overlay">
+                        <i class="fas fa-beer category-card-large__icon"></i>
+                        <h2 class="category-card-large__title">Cervezas</h2>
+                        <p class="category-card-large__count">280 productos</p>
+                        <div class="category-card-large__subcategories">
+                            <span class="subcategory-tag">Artesanales</span>
+                            <span class="subcategory-tag">Lager</span>
+                            <span class="subcategory-tag">IPA</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- VODKA -->
+                <a href="catalogo.html?cat=vodka" class="category-card-large">
+                    <div class="category-card-large__image" style="background-image: url('https://images.unsplash.com/photo-1560508179-cf29a1ed3dae?w=800')"></div>
+                    <div class="category-card-large__overlay">
+                        <i class="fas fa-fill-drip category-card-large__icon"></i>
+                        <h2 class="category-card-large__title">Vodka</h2>
+                        <p class="category-card-large__count">95 productos</p>
+                        <div class="category-card-large__subcategories">
+                            <span class="subcategory-tag">Premium</span>
+                            <span class="subcategory-tag">Saborizados</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- GINEBRA -->
+                <a href="catalogo.html?cat=ginebra" class="category-card-large">
+                    <div class="category-card-large__image" style="background-image: url('https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=800')"></div>
+                    <div class="category-card-large__overlay">
+                        <i class="fas fa-glass-martini-alt category-card-large__icon"></i>
+                        <h2 class="category-card-large__title">Ginebra</h2>
+                        <p class="category-card-large__count">110 productos</p>
+                        <div class="category-card-large__subcategories">
+                            <span class="subcategory-tag">London Dry</span>
+                            <span class="subcategory-tag">Pink Gin</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- OFERTAS ESPECIALES -->
+                <a href="catalogo.html?ofertas=true" class="category-card-large category-card-large--featured">
+                    <div class="category-card-large__image" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800')"></div>
+                    <div class="category-card-large__overlay category-card-large__overlay--offers">
+                        <i class="fas fa-tags category-card-large__icon"></i>
+                        <h2 class="category-card-large__title">🔥 Ofertas</h2>
+                        <p class="category-card-large__count">¡Hasta 40% de descuento!</p>
+                        <div class="category-card-large__subcategories">
+                            <span class="subcategory-tag">Nuevas Ofertas</span>
+                            <span class="subcategory-tag">Black Friday</span>
+                            <span class="subcategory-tag">Combos</span>
+                        </div>
+                    </div>
+                </a>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/593987654321" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../scripts/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - LicorPremium</title>
+    <meta name="description" content="Revisa y finaliza tu compra de licores premium">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <!-- HEADER (same as index.html) -->
+    <header class="header" role="banner">
+        <!-- Main Header -->
+        <nav class="header-main" role="navigation" aria-label="Navegación principal">
+            <div class="container">
+                <div class="header-main__wrapper">
+                    <div class="header-main__logo">
+                        <a href="index.html" class="logo" aria-label="Ir a inicio">
+                            <i class="fas fa-wine-glass-alt logo__icon"></i>
+                            <span class="logo__text">LicorPremium</span>
+                        </a>
+                    </div>
+
+                    <div class="header-main__search">
+                        <form class="search-form" role="search" aria-label="Buscar productos">
+                            <input type="text" class="search-form__input" placeholder="Buscar licores, marcas..." aria-label="Campo de búsqueda">
+                            <button type="submit" class="search-form__btn" aria-label="Buscar">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="header-main__actions">
+                        <!-- Theme Toggle - FIRST -->
+                        <button class="header-action theme-toggle" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar entre modo claro y oscuro">
+                            <i class="fas fa-moon theme-toggle__icon theme-toggle__icon--dark"></i>
+                            <i class="fas fa-sun theme-toggle__icon theme-toggle__icon--light"></i>
+                        </button>
+
+                        <button class="header-action" aria-label="Lista de deseos" id="wishlist-btn" title="Mis productos favoritos">
+                            <i class="fas fa-heart"></i>
+                            <span class="header-action__badge">0</span>
+                            <span class="header-action__text">Deseos</span>
+                        </button>
+
+                        <a href="#" class="header-action" aria-label="Rastrear pedido" title="Rastrear mi pedido">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="header-action__text">Rastrear</span>
+                        </a>
+
+                        <button class="header-action" aria-label="Mi cuenta" id="account-btn" aria-expanded="false" title="Iniciar sesión o crear cuenta">
+                            <i class="fas fa-user"></i>
+                            <span class="header-action__text">Cuenta</span>
+                        </button>
+
+                        <button class="header-action header-action--cart header-action--active" aria-label="Carrito de compras" id="cart-btn" title="Ver mi carrito de compras">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="header-action__badge" id="cart-count">3</span>
+                            <span class="header-action__text">Carrito</span>
+                        </button>
+                    </div>
+
+                    <button class="header-main__toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Category Navigation -->
+        <nav class="header-categories" id="header-categories" role="navigation" aria-label="Navegación principal y categorías">
+            <div class="container">
+                <ul class="categories-list">
+                    <li class="categories-list__item">
+                        <a href="index.html" class="categories-list__link">
+                            <i class="fas fa-home"></i>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li class="categories-list__item categories-list__item--dropdown">
+                        <a href="catalogo.html" class="categories-list__link" id="categorias-dropdown">
+                            <i class="fas fa-wine-bottle"></i>
+                            <span>Catálogo</span>
+                            <i class="fas fa-chevron-down categories-list__arrow"></i>
+                        </a>
+                        <div class="categories-dropdown" id="categorias-dropdown-menu">
+                            <div class="categories-dropdown__content">
+                                <a href="catalogo.html?cat=vinos" class="categories-dropdown__link">
+                                    <i class="fas fa-wine-glass"></i> Vinos
+                                </a>
+                                <a href="catalogo.html?cat=whisky" class="categories-dropdown__link">
+                                    <i class="fas fa-glass-whiskey"></i> Whiskies
+                                </a>
+                                <a href="catalogo.html?cat=ron" class="categories-dropdown__link">
+                                    <i class="fas fa-cocktail"></i> Ron
+                                </a>
+                                <a href="catalogo.html?cat=vodka" class="categories-dropdown__link">
+                                    <i class="fas fa-fill-drip"></i> Vodka
+                                </a>
+                                <a href="catalogo.html?cat=ginebra" class="categories-dropdown__link">
+                                    <i class="fas fa-glass-martini-alt"></i> Ginebra
+                                </a>
+                                <a href="catalogo.html?cat=cervezas" class="categories-dropdown__link">
+                                    <i class="fas fa-beer"></i> Cervezas
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="categories-list__item">
+                        <a href="acerca.html" class="categories-list__link">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Acerca de Nosotros</span>
+                        </a>
+                    </li>
+                    <li class="categories-list__item">
+                        <a href="contacto.html" class="categories-list__link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contacto</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="cart-page" role="main">
+        <!-- Breadcrumb -->
+        <section class="breadcrumb">
+            <div class="container">
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb__list">
+                        <li class="breadcrumb__item">
+                            <a href="index.html" class="breadcrumb__link">
+                                <i class="fas fa-home"></i> Inicio
+                            </a>
+                        </li>
+                        <li class="breadcrumb__item breadcrumb__item--active">
+                            <span>Carrito de Compras</span>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Cart Content -->
+        <section class="cart-content">
+            <div class="container">
+                <h1 class="cart-title">
+                    <i class="fas fa-shopping-cart"></i>
+                    Tu Carrito de Compras
+                </h1>
+
+                <div class="cart-layout">
+                    <!-- Cart Items -->
+                    <div class="cart-items">
+                        <div class="cart-items__header">
+                            <h2>Productos en tu carrito</h2>
+                            <button class="btn-text" id="clear-cart">
+                                <i class="fas fa-trash"></i>
+                                Vaciar carrito
+                            </button>
+                        </div>
+
+                        <!-- Cart Item 1 -->
+                        <article class="cart-item">
+                            <div class="cart-item__image">
+                                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=150&h=200&fit=crop&q=80" alt="Vino Casillero del Diablo" loading="lazy">
+                            </div>
+                            <div class="cart-item__details">
+                                <h3 class="cart-item__name">Vino Casillero del Diablo Reserva</h3>
+                                <p class="cart-item__category">
+                                    <i class="fas fa-wine-glass"></i> Vino Tinto
+                                </p>
+                                <p class="cart-item__specs">750ml • 13.5% Vol</p>
+                                <div class="cart-item__actions-mobile">
+                                    <button class="btn-icon" aria-label="Agregar a favoritos">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                    <button class="btn-icon btn-icon--danger" aria-label="Eliminar producto">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="cart-item__quantity">
+                                <label class="sr-only">Cantidad</label>
+                                <button class="qty-btn" aria-label="Disminuir cantidad">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" class="qty-input" value="2" min="1" max="10" aria-label="Cantidad">
+                                <button class="qty-btn" aria-label="Aumentar cantidad">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="cart-item__price">
+                                <span class="price-label">Precio unitario:</span>
+                                <span class="price-amount">$18.99</span>
+                            </div>
+                            <div class="cart-item__subtotal">
+                                <span class="subtotal-label">Subtotal:</span>
+                                <span class="subtotal-amount">$37.98</span>
+                            </div>
+                            <div class="cart-item__remove">
+                                <button class="btn-remove" aria-label="Eliminar producto">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Cart Item 2 -->
+                        <article class="cart-item">
+                            <div class="cart-item__image">
+                                <img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?w=150&h=200&fit=crop&q=80" alt="Cerveza Pilsener" loading="lazy">
+                                <span class="item-badge item-badge--promo">-15%</span>
+                            </div>
+                            <div class="cart-item__details">
+                                <h3 class="cart-item__name">Cerveza Pilsener (Pack x6)</h3>
+                                <p class="cart-item__category">
+                                    <i class="fas fa-beer"></i> Cerveza
+                                </p>
+                                <p class="cart-item__specs">330ml c/u • 4.2% Vol</p>
+                                <div class="cart-item__actions-mobile">
+                                    <button class="btn-icon" aria-label="Agregar a favoritos">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                    <button class="btn-icon btn-icon--danger" aria-label="Eliminar producto">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="cart-item__quantity">
+                                <label class="sr-only">Cantidad</label>
+                                <button class="qty-btn" aria-label="Disminuir cantidad">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" class="qty-input" value="1" min="1" max="10" aria-label="Cantidad">
+                                <button class="qty-btn" aria-label="Aumentar cantidad">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="cart-item__price">
+                                <span class="price-old">$12.99</span>
+                                <span class="price-amount">$11.04</span>
+                            </div>
+                            <div class="cart-item__subtotal">
+                                <span class="subtotal-label">Subtotal:</span>
+                                <span class="subtotal-amount">$11.04</span>
+                            </div>
+                            <div class="cart-item__remove">
+                                <button class="btn-remove" aria-label="Eliminar producto">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Cart Item 3 -->
+                        <article class="cart-item">
+                            <div class="cart-item__image">
+                                <img src="https://images.unsplash.com/photo-1566565682142-9d4d66e33590?w=150&h=200&fit=crop&q=80" alt="Jack Daniel's" loading="lazy">
+                            </div>
+                            <div class="cart-item__details">
+                                <h3 class="cart-item__name">Jack Daniel's Old No. 7</h3>
+                                <p class="cart-item__category">
+                                    <i class="fas fa-glass-whiskey"></i> Whiskey
+                                </p>
+                                <p class="cart-item__specs">750ml • 40% Vol</p>
+                                <div class="cart-item__actions-mobile">
+                                    <button class="btn-icon" aria-label="Agregar a favoritos">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                    <button class="btn-icon btn-icon--danger" aria-label="Eliminar producto">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="cart-item__quantity">
+                                <label class="sr-only">Cantidad</label>
+                                <button class="qty-btn" aria-label="Disminuir cantidad">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" class="qty-input" value="1" min="1" max="10" aria-label="Cantidad">
+                                <button class="qty-btn" aria-label="Aumentar cantidad">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="cart-item__price">
+                                <span class="price-label">Precio unitario:</span>
+                                <span class="price-amount">$32.50</span>
+                            </div>
+                            <div class="cart-item__subtotal">
+                                <span class="subtotal-label">Subtotal:</span>
+                                <span class="subtotal-amount">$32.50</span>
+                            </div>
+                            <div class="cart-item__remove">
+                                <button class="btn-remove" aria-label="Eliminar producto">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Continue Shopping -->
+                        <div class="cart-actions">
+                            <a href="catalogo.html" class="btn btn--outline">
+                                <i class="fas fa-arrow-left"></i>
+                                Seguir Comprando
+                            </a>
+                            <button class="btn btn--outline" id="update-cart">
+                                <i class="fas fa-sync-alt"></i>
+                                Actualizar Carrito
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cart Summary -->
+                    <aside class="cart-summary">
+                        <h2 class="summary-title">Resumen del Pedido</h2>
+                        
+                        <div class="summary-section">
+                            <div class="summary-row">
+                                <span>Subtotal (3 productos):</span>
+                                <span class="summary-value">$81.52</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Descuentos:</span>
+                                <span class="summary-value summary-value--discount">-$1.95</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Envío:</span>
+                                <span class="summary-value summary-value--free">GRATIS</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-row summary-row--total">
+                                <span>Total:</span>
+                                <span class="summary-total">$79.57</span>
+                            </div>
+                        </div>
+
+                        <!-- Coupon Code -->
+                        <div class="coupon-section">
+                            <h3 class="coupon-title">
+                                <i class="fas fa-tag"></i>
+                                ¿Tienes un cupón?
+                            </h3>
+                            <form class="coupon-form">
+                                <input type="text" class="coupon-input" placeholder="Código de cupón" aria-label="Código de cupón">
+                                <button type="submit" class="btn btn--secondary">Aplicar</button>
+                            </form>
+                        </div>
+
+                        <!-- Trust Badges -->
+                        <div class="trust-badges">
+                            <div class="trust-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Compra Segura</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-truck"></i>
+                                <span>Envío 24-48h</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-undo"></i>
+                                <span>Devolución Fácil</span>
+                            </div>
+                        </div>
+
+                        <!-- Accepted Payments -->
+                        <div class="payment-methods-mini">
+                            <p class="payment-label">Métodos de pago:</p>
+                            <div class="payment-icons">
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-mastercard"></i>
+                                <i class="fab fa-cc-amex"></i>
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Products -->
+        <section class="recommended-products">
+            <div class="container">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i>
+                    También te Puede Interesar
+                </h2>
+                <div class="products-slider">
+                    <article class="product-card-mini">
+                        <img src="https://images.unsplash.com/photo-1574870111867-089730e5a72b?w=200&h=250&fit=crop&q=80" alt="Santa Rita 120" loading="lazy">
+                        <h3>Santa Rita 120</h3>
+                        <p class="price">$15.99</p>
+                        <button class="btn btn--sm btn--primary">
+                            <i class="fas fa-cart-plus"></i> Agregar
+                        </button>
+                    </article>
+                    <article class="product-card-mini">
+                        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=200&h=250&fit=crop&q=80" alt="Ron Diplomático" loading="lazy">
+                        <h3>Ron Diplomático</h3>
+                        <p class="price">$28.50</p>
+                        <button class="btn btn--sm btn--primary">
+                            <i class="fas fa-cart-plus"></i> Agregar
+                        </button>
+                    </article>
+                    <article class="product-card-mini">
+                        <img src="https://images.unsplash.com/photo-1560508179-cf29a1ed3dae?w=200&h=250&fit=crop&q=80" alt="Absolut Vodka" loading="lazy">
+                        <h3>Absolut Vodka</h3>
+                        <p class="price">$22.99</p>
+                        <button class="btn btn--sm btn--primary">
+                            <i class="fas fa-cart-plus"></i> Agregar
+                        </button>
+                    </article>
+                    <article class="product-card-mini">
+                        <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=200&h=250&fit=crop&q=80" alt="Bombay Sapphire" loading="lazy">
+                        <h3>Bombay Sapphire</h3>
+                        <p class="price">$26.75</p>
+                        <button class="btn btn--sm btn--primary">
+                            <i class="fas fa-cart-plus"></i> Agregar
+                        </button>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (same as index.html) -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-age-banner">
+            <div class="container">
+                <div class="age-banner">
+                    <i class="fas fa-exclamation-triangle age-banner__icon"></i>
+                    <p class="age-banner__text">
+                        <strong>VENTA RESPONSABLE DE ALCOHOL:</strong> Prohibida la venta a menores de 18 años. 
+                        Bebe con moderación. Si bebes, no manejes.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-badges">
+            <div class="container">
+                <div class="badges-grid">
+                    <div class="badge-item">
+                        <i class="fas fa-shipping-fast badge-item__icon"></i>
+                        <div class="badge-item__content">
+                            <h4 class="badge-item__title">Envío Rápido</h4>
+                            <p class="badge-item__text">24-48 horas</p>
+                        </div>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fas fa-box-open badge-item__icon"></i>
+                        <div class="badge-item__content">
+                            <h4 class="badge-item__title">Embalaje Protegido</h4>
+                            <p class="badge-item__text">Botellas seguras</p>
+                        </div>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fab fa-whatsapp badge-item__icon"></i>
+                        <div class="badge-item__content">
+                            <h4 class="badge-item__title">Soporte 24/7</h4>
+                            <p class="badge-item__text">Vía WhatsApp</p>
+                        </div>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fas fa-lock badge-item__icon"></i>
+                        <div class="badge-item__content">
+                            <h4 class="badge-item__title">Pago Seguro</h4>
+                            <p class="badge-item__text">SSL Certificado</p>
+                        </div>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fas fa-check-circle badge-item__icon"></i>
+                        <div class="badge-item__content">
+                            <h4 class="badge-item__title">Satisfacción</h4>
+                            <p class="badge-item__text">Garantizada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <div class="footer-brand">
+                            <a href="index.html" class="footer-logo">
+                                <i class="fas fa-wine-glass-alt footer-logo__icon"></i>
+                                <span class="footer-logo__text">LicorPremium</span>
+                            </a>
+                            <p class="footer-brand__tagline">Tu tienda de confianza en bebidas premium desde 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom__content">
+                    <div class="footer-bottom__left">
+                        <p class="copyright">
+                            &copy; 2020-2025 <strong>LicorPremium</strong>. Todos los derechos reservados.
+                        </p>
+                        <p class="footer-bottom__legal">
+                            Venta de bebidas alcohólicas prohibida a menores de 18 años.
+                        </p>
+                    </div>
+                    <div class="footer-bottom__right">
+                        <a href="#" class="back-to-top" aria-label="Volver arriba">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>Volver arriba</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/51987654321?text=Hola,%20tengo%20una%20consulta%20sobre%20mi%20carrito" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener"
+       aria-label="Chatear por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../scripts/scripts.js"></script>
+    
+    <script>
+        // ==================== CARRITO FUNCIONAL ====================
+        
+        // Cargar carrito desde localStorage o inicializar vacío
+        let carritoItems = [];
+
+        // Configuración
+        const CONFIG = {
+            envioGratis: 50,
+            costoEnvio: 5.00,
+            descuentoCupon: 0
+        };
+
+        // Elementos DOM
+        const cartItemsContainer = document.querySelector('.cart-items');
+        const subtotalElement = document.querySelector('.summary-row:nth-child(1) .summary-value');
+        const descuentoElement = document.querySelector('.summary-row:nth-child(2) .summary-value');
+        const envioElement = document.querySelector('.summary-row:nth-child(3) .summary-value');
+        const totalElement = document.querySelector('.summary-total');
+        const cartCountBadge = document.getElementById('cart-count');
+        const btnVaciarCarrito = document.querySelector('.btn-text');
+
+        // ==================== RENDERIZAR CARRITO ====================
+        function renderizarCarrito() {
+            if (carritoItems.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px; color: var(--text-secondary);">
+                        <i class="fas fa-shopping-cart" style="font-size: 64px; margin-bottom: 20px; opacity: 0.3;"></i>
+                        <h3 style="margin-bottom: 10px;">Tu carrito está vacío</h3>
+                        <p style="margin-bottom: 20px;">¡Agrega productos para comenzar tu compra!</p>
+                        <a href="catalogo.html" class="btn btn--primary">
+                            <i class="fas fa-shopping-bag"></i> Ir al Catálogo
+                        </a>
+                    </div>
+                `;
+                document.querySelector('.cart-summary').style.display = 'none';
+                return;
+            }
+
+            const itemsHTML = carritoItems.map(item => `
+                <div class="cart-item" data-id="${item.id}">
+                    <div class="cart-item__image">
+                        ${item.precioAntiguo ? '<span class="item-badge">OFERTA</span>' : ''}
+                        <img src="${item.imagen}" alt="${item.nombre}" loading="lazy">
+                    </div>
+                    
+                    <div class="cart-item__details">
+                        <h3 class="cart-item__name">${item.nombre}</h3>
+                        <p class="cart-item__category">
+                            <i class="fas fa-tag"></i> ${item.categoria}
+                        </p>
+                        <p class="cart-item__specs">${item.volumen}</p>
+                        <div class="cart-item__actions-mobile">
+                            <div class="cart-item__quantity">
+                                <button class="qty-btn qty-minus" data-id="${item.id}" aria-label="Disminuir cantidad">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" class="qty-input" value="${item.cantidad}" min="1" max="99" readonly>
+                                <button class="qty-btn qty-plus" data-id="${item.id}" aria-label="Aumentar cantidad">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <button class="btn-icon btn-icon--danger btn-remove-mobile" data-id="${item.id}" aria-label="Eliminar producto">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="cart-item__quantity">
+                        <button class="qty-btn qty-minus" data-id="${item.id}" aria-label="Disminuir cantidad">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <input type="number" class="qty-input" value="${item.cantidad}" min="1" max="99" readonly>
+                        <button class="qty-btn qty-plus" data-id="${item.id}" aria-label="Aumentar cantidad">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="cart-item__price">
+                        <span class="price-label">Precio unitario</span>
+                        ${item.precioAntiguo ? `<span class="price-old">$${item.precioAntiguo.toFixed(2)}</span>` : ''}
+                        <span class="price-amount">$${item.precio.toFixed(2)}</span>
+                    </div>
+                    
+                    <div class="cart-item__subtotal">
+                        <span class="subtotal-label">Subtotal</span>
+                        <span class="subtotal-amount">$${(item.precio * item.cantidad).toFixed(2)}</span>
+                    </div>
+                    
+                    <div class="cart-item__remove">
+                        <button class="btn-remove" data-id="${item.id}" aria-label="Eliminar producto">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            const headerHTML = `
+                <div class="cart-items__header">
+                    <h2>Productos en tu carrito (${carritoItems.length})</h2>
+                    <button class="btn-text" id="btn-vaciar">
+                        <i class="fas fa-trash"></i> Vaciar carrito
+                    </button>
+                </div>
+            `;
+
+            const footerHTML = `
+                <div class="cart-actions">
+                    <a href="catalogo.html" class="btn btn--secondary">
+                        <i class="fas fa-arrow-left"></i> Continuar comprando
+                    </a>
+                    <a href="carro.html" class="btn btn--primary">
+                        Proceder al pago <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            `;
+
+            cartItemsContainer.innerHTML = headerHTML + itemsHTML + footerHTML;
+            
+            // Agregar event listeners después de renderizar
+            agregarEventListeners();
+            actualizarResumen();
+        }
+
+        // ==================== ACTUALIZAR RESUMEN ====================
+        function actualizarResumen() {
+            const subtotal = carritoItems.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+            const descuento = CONFIG.descuentoCupon * subtotal;
+            const envio = subtotal >= CONFIG.envioGratis ? 0 : CONFIG.costoEnvio;
+            const total = subtotal - descuento + envio;
+
+            // Actualizar valores
+            if (subtotalElement) subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+            if (descuentoElement) descuentoElement.textContent = descuento > 0 ? `-$${descuento.toFixed(2)}` : '$0.00';
+            if (envioElement) {
+                envioElement.textContent = envio === 0 ? 'GRATIS' : `$${envio.toFixed(2)}`;
+                envioElement.className = envio === 0 ? 'summary-value summary-value--free' : 'summary-value';
+            }
+            if (totalElement) totalElement.textContent = `$${total.toFixed(2)}`;
+            
+            // Actualizar badge del carrito
+            const totalItems = carritoItems.reduce((sum, item) => sum + item.cantidad, 0);
+            if (cartCountBadge) cartCountBadge.textContent = totalItems;
+
+            // Mostrar mensaje de envío gratis
+            mostrarMensajeEnvio(subtotal);
+        }
+
+        // ==================== MENSAJE ENVÍO GRATIS ====================
+        function mostrarMensajeEnvio(subtotal) {
+            const mensajeExistente = document.querySelector('.envio-mensaje');
+            if (mensajeExistente) mensajeExistente.remove();
+
+            if (subtotal < CONFIG.envioGratis) {
+                const falta = CONFIG.envioGratis - subtotal;
+                const mensaje = document.createElement('div');
+                mensaje.className = 'envio-mensaje';
+                mensaje.innerHTML = `
+                    <div style="background: #FFF3E0; padding: 12px; border-radius: 8px; border-left: 4px solid #FF9800; margin: 15px 0; font-size: 14px;">
+                        <i class="fas fa-truck" style="color: #FF9800;"></i>
+                        <strong>¡Estás cerca del envío gratis!</strong><br>
+                        Agrega <strong>$${falta.toFixed(2)}</strong> más para obtener envío gratuito.
+                    </div>
+                `;
+                document.querySelector('.summary-section').prepend(mensaje);
+            } else {
+                const mensaje = document.createElement('div');
+                mensaje.className = 'envio-mensaje';
+                mensaje.innerHTML = `
+                    <div style="background: #E8F5E9; padding: 12px; border-radius: 8px; border-left: 4px solid #4CAF50; margin: 15px 0; font-size: 14px;">
+                        <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
+                        <strong>¡Felicidades! Tienes envío gratis</strong>
+                    </div>
+                `;
+                document.querySelector('.summary-section').prepend(mensaje);
+            }
+        }
+
+        // ==================== CAMBIAR CANTIDAD ====================
+        function cambiarCantidad(id, operacion) {
+            const item = carritoItems.find(i => i.id === id);
+            if (!item) return;
+
+            if (operacion === 'aumentar') {
+                if (item.cantidad < 99) {
+                    item.cantidad++;
+                }
+            } else if (operacion === 'disminuir') {
+                if (item.cantidad > 1) {
+                    item.cantidad--;
+                } else {
+                    // Si la cantidad es 1 y se intenta disminuir, eliminar el producto
+                    if (confirm('¿Deseas eliminar este producto del carrito?')) {
+                        eliminarProducto(id);
+                        return;
+                    }
+                }
+            }
+
+            // Guardar en localStorage
+            guardarCarrito();
+            renderizarCarrito();
+        }
+
+        // ==================== ELIMINAR PRODUCTO ====================
+        let productoAEliminar = null;
+
+        function eliminarProducto(id) {
+            // Guardar ID y mostrar modal de confirmación
+            productoAEliminar = id;
+            const producto = carritoItems.find(item => item.id === id);
+            
+            if (producto) {
+                const nombreElement = document.getElementById('delete-product-name');
+                if (nombreElement) {
+                    nombreElement.textContent = producto.nombre;
+                }
+            }
+            
+            openModal('confirm-delete-modal');
+        }
+
+        function confirmarEliminarProducto() {
+            if (productoAEliminar !== null) {
+                carritoItems = carritoItems.filter(item => item.id !== productoAEliminar);
+                guardarCarrito();
+                renderizarCarrito();
+                mostrarNotificacion('Producto eliminado del carrito', 'info');
+                closeModal('confirm-delete-modal');
+                productoAEliminar = null;
+            }
+        }
+
+        // ==================== VACIAR CARRITO ====================
+        function vaciarCarrito() {
+            // Actualizar contador y mostrar modal
+            document.getElementById('cart-items-count').textContent = carritoItems.length;
+            openModal('confirm-clear-modal');
+        }
+
+        function confirmarVaciarCarrito() {
+            carritoItems = [];
+            guardarCarrito();
+            renderizarCarrito();
+            mostrarNotificacion('Carrito vaciado', 'info');
+            closeModal('confirm-clear-modal');
+        }
+
+        // ==================== FUNCIONES AUXILIARES MODAL ====================
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            
+            if (modal) {
+                // Prevenir scroll del body
+                document.body.style.overflow = 'hidden';
+                
+                // Usar la clase 'active' en lugar de manipular display/opacity
+                modal.classList.add('active');
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                // Remover clase active
+                modal.classList.remove('active');
+                
+                // Restaurar scroll solo si no hay otros modales abiertos
+                const otrosModalesAbiertos = Array.from(document.querySelectorAll('.modal.active')).length > 0;
+                if (!otrosModalesAbiertos) {
+                    document.body.style.overflow = '';
+                }
+            }
+        }
+
+        // ==================== APLICAR CUPÓN ====================
+        function aplicarCupon() {
+            const input = document.querySelector('.coupon-input');
+            const codigo = input.value.trim().toUpperCase();
+            
+            const cupones = {
+                'DESCUENTO10': 0.10,
+                'VERANO15': 0.15,
+                'PRIMERACOMPRA': 0.20
+            };
+
+            if (cupones[codigo]) {
+                CONFIG.descuentoCupon = cupones[codigo];
+                mostrarNotificacion(`¡Cupón aplicado! ${(cupones[codigo] * 100)}% de descuento`, 'success');
+                input.value = '';
+                input.disabled = true;
+                document.querySelector('.btn--sm').textContent = '✓ Aplicado';
+                document.querySelector('.btn--sm').disabled = true;
+                actualizarResumen();
+            } else {
+                mostrarNotificacion('Cupón inválido', 'error');
+            }
+        }
+
+        // ==================== NOTIFICACIONES ====================
+        function mostrarNotificacion(mensaje, tipo = 'info') {
+            // Remover notificación anterior si existe
+            const notifExistente = document.querySelector('.notificacion-cart');
+            if (notifExistente) notifExistente.remove();
+
+            const colores = {
+                success: { bg: '#4CAF50', icon: 'check-circle' },
+                error: { bg: '#f44336', icon: 'exclamation-circle' },
+                info: { bg: '#2196F3', icon: 'info-circle' }
+            };
+
+            const color = colores[tipo] || colores.info;
+
+            const notif = document.createElement('div');
+            notif.className = 'notificacion-cart';
+            notif.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: ${color.bg};
+                color: white;
+                padding: 16px 24px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                animation: slideIn 0.3s ease;
+                max-width: 350px;
+            `;
+            notif.innerHTML = `
+                <i class="fas fa-${color.icon}" style="font-size: 20px;"></i>
+                <span style="flex: 1;">${mensaje}</span>
+                <button onclick="this.parentElement.remove()" style="background: none; border: none; color: white; cursor: pointer; font-size: 20px; padding: 0; line-height: 1;">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+
+            document.body.appendChild(notif);
+
+            setTimeout(() => {
+                notif.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notif.remove(), 300);
+            }, 3000);
+        }
+
+        // ==================== GUARDAR EN LOCALSTORAGE ====================
+        function guardarCarrito() {
+            localStorage.setItem('carritoItems', JSON.stringify(carritoItems));
+        }
+
+        // ==================== CARGAR DESDE LOCALSTORAGE ====================
+        function cargarCarrito() {
+            const saved = localStorage.getItem('carritoItems');
+            if (saved) {
+                carritoItems = JSON.parse(saved);
+            }
+        }
+
+        // ==================== EVENT LISTENERS ====================
+        function agregarEventListeners() {
+            // Botones de cantidad
+            document.querySelectorAll('.qty-plus').forEach(btn => {
+                if (!btn.dataset.listenerAdded) {
+                    btn.addEventListener('click', (e) => {
+                        const id = parseInt(e.currentTarget.dataset.id);
+                        cambiarCantidad(id, 'aumentar');
+                    });
+                    btn.dataset.listenerAdded = 'true';
+                }
+            });
+
+            document.querySelectorAll('.qty-minus').forEach(btn => {
+                if (!btn.dataset.listenerAdded) {
+                    btn.addEventListener('click', (e) => {
+                        const id = parseInt(e.currentTarget.dataset.id);
+                        cambiarCantidad(id, 'disminuir');
+                    });
+                    btn.dataset.listenerAdded = 'true';
+                }
+            });
+
+            // Botones de eliminar - PREVENIR DUPLICADOS CON FLAG
+            document.querySelectorAll('.btn-remove, .btn-remove-mobile').forEach(btn => {
+                if (!btn.dataset.listenerAdded) {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const id = parseInt(e.currentTarget.dataset.id);
+                        eliminarProducto(id);
+                    });
+                    btn.dataset.listenerAdded = 'true';
+                }
+            });
+
+            // Botón vaciar carrito
+            const btnVaciar = document.getElementById('btn-vaciar');
+            if (btnVaciar && !btnVaciar.dataset.listenerAdded) {
+                btnVaciar.addEventListener('click', vaciarCarrito);
+                btnVaciar.dataset.listenerAdded = 'true';
+            }
+
+            // Botón aplicar cupón
+            const btnCupon = document.querySelector('.coupon-form .btn--sm');
+            if (btnCupon) {
+                btnCupon.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    aplicarCupon();
+                });
+            }
+
+            // Enter en el input de cupón
+            const inputCupon = document.querySelector('.coupon-input');
+            if (inputCupon) {
+                inputCupon.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        aplicarCupon();
+                    }
+                });
+            }
+        }
+
+        // ==================== ANIMACIONES CSS ====================
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // ==================== INICIALIZAR ====================
+        window.addEventListener('load', () => {
+            cargarCarrito();
+            renderizarCarrito();
+            
+            // ==================== EVENT LISTENERS MODALES (solo una vez) ====================
+            // Confirmar eliminar producto
+            const btnConfirmDelete = document.querySelector('#confirm-delete-modal .btn-confirm-delete');
+            if (btnConfirmDelete) {
+                btnConfirmDelete.addEventListener('click', confirmarEliminarProducto);
+            }
+
+            // Confirmar vaciar carrito
+            const btnConfirmClear = document.querySelector('#confirm-clear-modal .btn-confirm-clear');
+            if (btnConfirmClear) {
+                btnConfirmClear.addEventListener('click', confirmarVaciarCarrito);
+            }
+
+            // Cancelar eliminar producto
+            const btnCancelDelete = document.querySelector('#confirm-delete-modal .btn-cancel');
+            if (btnCancelDelete) {
+                btnCancelDelete.addEventListener('click', () => {
+                    closeModal('confirm-delete-modal');
+                    productoAEliminar = null;
+                });
+            }
+
+            // Cancelar vaciar carrito
+            const btnCancelClear = document.querySelector('#confirm-clear-modal .btn-cancel-clear');
+            if (btnCancelClear) {
+                btnCancelClear.addEventListener('click', () => closeModal('confirm-clear-modal'));
+            }
+
+            // Cerrar modales con X
+            document.querySelectorAll('#confirm-delete-modal .modal__close, #confirm-clear-modal .modal__close').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const modalId = e.target.closest('.modal').id;
+                    closeModal(modalId);
+                    if (modalId === 'confirm-delete-modal') {
+                        productoAEliminar = null;
+                    }
+                });
+            });
+
+            // Cerrar modales al hacer clic en el overlay
+            document.querySelectorAll('#confirm-delete-modal .modal__overlay, #confirm-clear-modal .modal__overlay').forEach(overlay => {
+                overlay.addEventListener('click', (e) => {
+                    const modal = e.target.closest('.modal');
+                    if (modal) {
+                        closeModal(modal.id);
+                        if (modal.id === 'confirm-delete-modal') {
+                            productoAEliminar = null;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Modal: Login / Registro -->
+    <div class="modal" id="auth-modal" role="dialog" aria-labelledby="auth-modal-title" aria-modal="true">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__container">
+            <button class="modal__close" data-close-modal aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal__content">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Iniciar Sesión</button>
+                    <button class="auth-tab" data-tab="register">Registrarse</button>
+                </div>
+
+                <!-- Login Form -->
+                <form class="auth-form" id="login-form" data-tab-content="login">
+                    <h2 class="modal__title" id="auth-modal-title">Bienvenido de vuelta</h2>
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">
+                            <i class="fas fa-envelope"></i>
+                            Correo Electrónico
+                        </label>
+                        <input 
+                            type="email" 
+                            id="login-email" 
+                            class="form-input"
+                            placeholder="tu@email.com"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">
+                            <i class="fas fa-lock"></i>
+                            Contraseña
+                        </label>
+                        <div class="form-input-group">
+                            <input 
+                                type="password" 
+                                id="login-password" 
+                                class="form-input"
+                                placeholder="••••••••"
+                                required
+                            >
+                            <button type="button" class="form-input-icon" id="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="remember">
+                            <span>Recordarme</span>
+                        </label>
+                        <a href="#" class="form-link" id="forgot-password-link">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--block btn--lg">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Iniciar Sesión
+                    </button>
+                </form>
+
+                <!-- Register Form -->
+                <form class="auth-form hidden" id="register-form" data-tab-content="register">
+                    <h2 class="modal__title">Crear Cuenta</h2>
+                    <div class="form-group">
+                        <label for="register-name" class="form-label">
+                            <i class="fas fa-user"></i>
+                            Nombre Completo
+                        </label>
+                        <input 
+                            type="text" 
+                            id="register-name" 
+                            class="form-input"
+                            placeholder="Juan Pérez"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" class="form-label">
+                            <i class="fas fa-envelope"></i>
+                            Correo Electrónico
+                        </label>
+                        <input 
+                            type="email" 
+                            id="register-email" 
+                            class="form-input"
+                            placeholder="tu@email.com"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" class="form-label">
+                            <i class="fas fa-lock"></i>
+                            Contraseña
+                        </label>
+                        <input 
+                            type="password" 
+                            id="register-password" 
+                            class="form-input"
+                            placeholder="Mínimo 8 caracteres"
+                            required
+                            minlength="8"
+                        >
+                        <div class="form-hint">
+                            <small>Usa al menos 8 caracteres con letras y números</small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-checkbox form-checkbox--required">
+                            <input type="checkbox" name="terms" required>
+                            <span>Acepto los <a href="#terminos" class="form-link">términos y condiciones</a></span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-checkbox form-checkbox--required">
+                            <input type="checkbox" name="age" required>
+                            <span>Confirmo que soy mayor de 18 años</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--block btn--lg">
+                        <i class="fas fa-user-plus"></i>
+                        Registrarse
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Confirmar Eliminar Producto -->
+    <div class="modal" id="confirm-delete-modal" role="dialog" aria-modal="true">
+        <div class="modal__overlay"></div>
+        <div class="modal__container">
+            <button class="modal__close" aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal__content" style="color: #f5f5f5; text-align: center;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FF6B6B 0%, #EE5A52 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);">
+                    <i class="fas fa-trash-alt" style="font-size: 36px; color: #fff;"></i>
+                </div>
+                <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 10px; color: #f5f5f5;">¿Eliminar producto?</h2>
+                <p id="delete-product-name" style="color: #b0b0b0; margin-bottom: 20px; font-size: 15px;"></p>
+                <p style="color: #888; font-size: 14px; margin-bottom: 30px;">Esta acción no se puede deshacer.</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <button type="button" class="btn-cancel" style="padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 14px; background: transparent; color: #888; border: 1px solid rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                    <button type="button" class="btn-confirm-delete" style="padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 14px; background: linear-gradient(135deg, #FF6B6B 0%, #EE5A52 100%); color: #fff; border: none; box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);">
+                        <i class="fas fa-trash-alt"></i> Sí, eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Confirmar Vaciar Carrito -->
+    <div class="modal" id="confirm-clear-modal" role="dialog" aria-modal="true">
+        <div class="modal__overlay"></div>
+        <div class="modal__container">
+            <button class="modal__close" aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal__content" style="color: #f5f5f5; text-align: center;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 10px 30px rgba(255, 165, 0, 0.4);">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 36px; color: #fff;"></i>
+                </div>
+                <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 10px; color: #f5f5f5;">¿Vaciar carrito completo?</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px; font-size: 15px;">Se eliminarán <strong id="cart-items-count" style="color: #D4AF37;">0</strong> productos del carrito.</p>
+                <p style="color: #888; font-size: 14px; margin-bottom: 30px;">Esta acción no se puede deshacer.</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <button type="button" class="btn-cancel-clear" style="padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 14px; background: transparent; color: #888; border: 1px solid rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                    <button type="button" class="btn-confirm-clear" style="padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 14px; background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%); color: #fff; border: none; box-shadow: 0 4px 15px rgba(255, 165, 0, 0.3);">
+                        <i class="fas fa-trash-alt"></i> Sí, vaciar todo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

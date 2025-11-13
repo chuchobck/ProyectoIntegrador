@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - LicorPremium Ecuador</title>
+    <meta name="description" content="Contáctanos en LicorPremium Ecuador. Atención personalizada, múltiples canales de contacto y soporte 24/7 vía WhatsApp.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" role="banner">
+        <!-- Main Header -->
+        <nav class="header-main" role="navigation" aria-label="Navegación principal">
+            <div class="container">
+                <div class="header-main__wrapper">
+                    <!-- Logo -->
+                    <div class="header-main__logo">
+                        <a href="index.html" class="logo" aria-label="Ir a inicio">
+                            <i class="fas fa-wine-glass-alt logo__icon"></i>
+                            <span class="logo__text">LicorPremium</span>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="header-main__search">
+                        <form class="search-form" role="search" aria-label="Buscar productos">
+                            <input 
+                                type="text" 
+                                class="search-form__input" 
+                                placeholder="Buscar licores, marcas..." 
+                                aria-label="Campo de búsqueda"
+                            >
+                            <button type="submit" class="search-form__btn" aria-label="Buscar">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="header-main__actions">
+                        <!-- Theme Toggle - FIRST -->
+                        <button 
+                            class="header-action theme-toggle" 
+                            id="theme-toggle"
+                            aria-label="Cambiar tema"
+                            title="Cambiar entre modo claro y oscuro"
+                        >
+                            <i class="fas fa-moon theme-toggle__icon theme-toggle__icon--dark"></i>
+                            <i class="fas fa-sun theme-toggle__icon theme-toggle__icon--light"></i>
+                        </button>
+
+                        <button 
+                            class="header-action" 
+                            aria-label="Lista de deseos" 
+                            id="wishlist-btn"
+                            title="Mis productos favoritos"
+                        >
+                            <i class="fas fa-heart"></i>
+                            <span class="header-action__badge">0</span>
+                            <span class="header-action__text">Deseos</span>
+                        </button>
+
+                        <a 
+                            href="#"
+                            class="header-action" 
+                            aria-label="Rastrear pedido"
+                            title="Rastrear mi pedido"
+                        >
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="header-action__text">Rastrear</span>
+                        </a>
+
+                        <button 
+                            class="header-action" 
+                            aria-label="Mi cuenta" 
+                            id="account-btn"
+                            aria-expanded="false"
+                            title="Iniciar sesión o crear cuenta"
+                        >
+                            <i class="fas fa-user"></i>
+                            <span class="header-action__text">Cuenta</span>
+                        </button>
+
+                        <a 
+                            href="carrito.html"
+                            class="header-action header-action--cart" 
+                            aria-label="Carrito de compras" 
+                            id="cart-btn"
+                            title="Ver mi carrito de compras"
+                        >
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="header-action__badge" id="cart-count">0</span>
+                            <span class="header-action__text">Carrito</span>
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button 
+                        class="header-main__toggle" 
+                        id="menu-toggle" 
+                        aria-label="Abrir menú" 
+                        aria-expanded="false"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Category Navigation -->
+        <nav class="header-categories" id="header-categories" role="navigation" aria-label="Navegación principal y categorías">
+            <div class="container">
+                <ul class="categories-list">
+                    <li class="categories-list__item">
+                        <a href="index.html" class="categories-list__link">
+                            <i class="fas fa-home"></i>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li class="categories-list__item categories-list__item--dropdown">
+                        <a href="catalogo.html" class="categories-list__link" id="categorias-dropdown">
+                            <i class="fas fa-wine-bottle"></i>
+                            <span>Catálogo</span>
+                            <i class="fas fa-chevron-down categories-list__arrow"></i>
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <div class="categories-dropdown" id="categorias-dropdown-menu">
+                            <div class="categories-dropdown__content">
+                                <a href="catalogo.html?cat=vinos" class="categories-dropdown__link">
+                                    <i class="fas fa-wine-glass"></i> Vinos
+                                </a>
+                                <a href="catalogo.html?cat=whisky" class="categories-dropdown__link">
+                                    <i class="fas fa-glass-whiskey"></i> Whiskies
+                                </a>
+                                <a href="catalogo.html?cat=ron" class="categories-dropdown__link">
+                                    <i class="fas fa-cocktail"></i> Ron
+                                </a>
+                                <a href="catalogo.html?cat=vodka" class="categories-dropdown__link">
+                                    <i class="fas fa-fill-drip"></i> Vodka
+                                </a>
+                                <a href="catalogo.html?cat=ginebra" class="categories-dropdown__link">
+                                    <i class="fas fa-glass-martini-alt"></i> Ginebra
+                                </a>
+                                <a href="catalogo.html?cat=cervezas" class="categories-dropdown__link">
+                                    <i class="fas fa-beer"></i> Cervezas
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="categories-list__item">
+                        <a href="acerca.html" class="categories-list__link">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Acerca de Nosotros</span>
+                        </a>
+                    </li>
+                    <li class="categories-list__item">
+                        <a href="contacto.html" class="categories-list__link" aria-current="page">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contacto</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="contact-page" role="main">
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="container">
+                <div class="contact-hero__content">
+                    <h1 class="contact-hero__title">¿Cómo podemos ayudarte?</h1>
+                    <p class="contact-hero__subtitle">
+                        Estamos aquí para atenderte. Contáctanos por el canal de tu preferencia.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Contact Cards -->
+        <section class="quick-contact">
+            <div class="container">
+                <div class="quick-contact-grid">
+                    <a href="https://wa.me/593987654321" class="quick-contact-card quick-contact-card--whatsapp" target="_blank" rel="noopener">
+                        <div class="quick-contact-card__icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3 class="quick-contact-card__title">WhatsApp</h3>
+                        <p class="quick-contact-card__text">Atención inmediata 24/7</p>
+                        <p class="quick-contact-card__value">+593 98 765 4321</p>
+                        <span class="quick-contact-card__badge">Recomendado</span>
+                    </a>
+
+                    <a href="tel:+59322345678" class="quick-contact-card quick-contact-card--phone">
+                        <div class="quick-contact-card__icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3 class="quick-contact-card__title">Teléfono</h3>
+                        <p class="quick-contact-card__text">Lun-Sáb: 9:00 AM - 8:00 PM</p>
+                        <p class="quick-contact-card__value">(02) 234-5678</p>
+                    </a>
+
+                    <a href="mailto:info@licorpremium.ec" class="quick-contact-card quick-contact-card--email">
+                        <div class="quick-contact-card__icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="quick-contact-card__title">Email</h3>
+                        <p class="quick-contact-card__text">Respuesta en 2-4 horas</p>
+                        <p class="quick-contact-card__value">info@licorpremium.ec</p>
+                    </a>
+
+                    <a href="#chat" class="quick-contact-card quick-contact-card--chat">
+                        <div class="quick-contact-card__icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="quick-contact-card__title">Chat en Vivo</h3>
+                        <p class="quick-contact-card__text">Disponible en horario laboral</p>
+                        <p class="quick-contact-card__value">Iniciar chat</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form & Info -->
+        <section class="contact-main">
+            <div class="container">
+                <div class="contact-layout">
+                    <!-- Contact Form -->
+                    <div class="contact-form-section">
+                        <h2 class="section-title">Envíanos un Mensaje</h2>
+                        <p class="section-subtitle">Completa el formulario y te responderemos a la brevedad</p>
+                        
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">
+                                        <i class="fas fa-user"></i>
+                                        Nombre Completo *
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="name" 
+                                        name="name" 
+                                        class="form-input" 
+                                        placeholder="Juan Pérez"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="form-label">
+                                        <i class="fas fa-envelope"></i>
+                                        Correo Electrónico *
+                                    </label>
+                                    <input 
+                                        type="email" 
+                                        id="email" 
+                                        name="email" 
+                                        class="form-input" 
+                                        placeholder="tu@email.com"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">
+                                        <i class="fas fa-phone"></i>
+                                        Teléfono *
+                                    </label>
+                                    <input 
+                                        type="tel" 
+                                        id="phone" 
+                                        name="phone" 
+                                        class="form-input" 
+                                        placeholder="+593 98 765 4321"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">
+                                        <i class="fas fa-tag"></i>
+                                        Asunto *
+                                    </label>
+                                    <select id="subject" name="subject" class="form-select" required>
+                                        <option value="">Selecciona un asunto</option>
+                                        <option value="consulta">Consulta sobre productos</option>
+                                        <option value="pedido">Estado de mi pedido</option>
+                                        <option value="envio">Información de envíos</option>
+                                        <option value="devoluciones">Devoluciones y cambios</option>
+                                        <option value="mayorista">Compras mayoristas</option>
+                                        <option value="reclamo">Reclamo o sugerencia</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">
+                                    <i class="fas fa-comment-alt"></i>
+                                    Mensaje *
+                                </label>
+                                <textarea 
+                                    id="message" 
+                                    name="message" 
+                                    class="form-textarea" 
+                                    rows="6"
+                                    placeholder="Cuéntanos, ¿en qué podemos ayudarte?"
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="age_verify" required>
+                                    <span>Confirmo que soy mayor de 18 años</span>
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="newsletter">
+                                    <span>Deseo recibir promociones y novedades</span>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn--primary btn--lg btn--block">
+                                <i class="fas fa-paper-plane"></i>
+                                Enviar Mensaje
+                            </button>
+
+                            <p class="form-privacy">
+                                <i class="fas fa-lock"></i>
+                                Tus datos están protegidos. Lee nuestra 
+                                <a href="#privacidad">política de privacidad</a>
+                            </p>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info Sidebar -->
+                    <div class="contact-info-sidebar">
+                        <!-- Office Hours -->
+                        <div class="info-card">
+                            <div class="info-card__header">
+                                <i class="fas fa-clock"></i>
+                                <h3>Horarios de Atención</h3>
+                            </div>
+                            <div class="info-card__content">
+                                <div class="schedule-item">
+                                    <span class="schedule-day">Lunes - Viernes</span>
+                                    <span class="schedule-time">9:00 AM - 8:00 PM</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span class="schedule-day">Sábados</span>
+                                    <span class="schedule-time">9:00 AM - 7:00 PM</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span class="schedule-day">Domingos</span>
+                                    <span class="schedule-time">10:00 AM - 4:00 PM</span>
+                                </div>
+                                <div class="schedule-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    WhatsApp disponible 24/7
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Response Time -->
+                        <div class="info-card info-card--accent">
+                            <div class="info-card__header">
+                                <i class="fas fa-clock"></i>
+                                <h3>Tiempo de Respuesta</h3>
+                            </div>
+                            <div class="info-card__content">
+                                <div class="response-item">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <div>
+                                        <strong>WhatsApp</strong>
+                                        <span>Inmediato (24/7)</span>
+                                    </div>
+                                </div>
+                                <div class="response-item">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <strong>Teléfono</strong>
+                                        <span>Inmediato (horario laboral)</span>
+                                    </div>
+                                </div>
+                                <div class="response-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <strong>Email</strong>
+                                        <span>2-4 horas hábiles</span>
+                                    </div>
+                                </div>
+                                <div class="response-item">
+                                    <i class="fas fa-comment-alt"></i>
+                                    <div>
+                                        <strong>Formulario</strong>
+                                        <span>4-8 horas hábiles</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="info-card">
+                            <div class="info-card__header">
+                                <i class="fas fa-share-alt"></i>
+                                <h3>Síguenos</h3>
+                            </div>
+                            <div class="info-card__content">
+                                <div class="social-links-contact">
+                                    <a href="https://instagram.com/licorpremium" class="social-link-contact social-link-contact--instagram" target="_blank" rel="noopener">
+                                        <i class="fab fa-instagram"></i>
+                                        <span>@licorpremium</span>
+                                    </a>
+                                    <a href="https://facebook.com/licorpremium" class="social-link-contact social-link-contact--facebook" target="_blank" rel="noopener">
+                                        <i class="fab fa-facebook-f"></i>
+                                        <span>/licorpremium</span>
+                                    </a>
+                                    <a href="https://tiktok.com/@licorpremium" class="social-link-contact social-link-contact--tiktok" target="_blank" rel="noopener">
+                                        <i class="fab fa-tiktok"></i>
+                                        <span>@licorpremium</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Locations -->
+        <section class="contact-locations">
+            <div class="container">
+                <h2 class="section-title">Nuestras Sucursales</h2>
+                <p class="section-subtitle">Visítanos en nuestras tiendas físicas</p>
+                
+                <div class="locations-contact-grid">
+                    <div class="location-contact-card">
+                        <div class="location-contact-card__image">
+                            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop&q=85" 
+                                 alt="Sucursal Quito" 
+                                 loading="lazy">
+                            <span class="location-badge">Principal</span>
+                        </div>
+                        <div class="location-contact-card__content">
+                            <h3 class="location-contact-card__city">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Quito - Matriz
+                            </h3>
+                            <p class="location-contact-card__address">
+                                <i class="fas fa-location-dot"></i>
+                                Av. Amazonas N24-156 y Colón<br>
+                                Edificio España, Local 3<br>
+                                Sector La Mariscal
+                            </p>
+                            <div class="location-contact-card__details">
+                                <div class="location-detail">
+                                    <i class="fas fa-phone"></i>
+                                    <a href="tel:+59322345678">(02) 234-5678</a>
+                                </div>
+                                <div class="location-detail">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <a href="https://wa.me/593987654321" target="_blank">+593 98 765 4321</a>
+                                </div>
+                                <div class="location-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Lun-Sáb: 9:00 AM - 8:00 PM</span>
+                                </div>
+                            </div>
+                            <a href="https://maps.google.com" class="btn btn--outline btn--sm" target="_blank" rel="noopener">
+                                <i class="fas fa-directions"></i>
+                                Cómo llegar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="location-contact-card">
+                        <div class="location-contact-card__image">
+                            <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600&h=400&fit=crop&q=85" 
+                                 alt="Sucursal Guayaquil" 
+                                 loading="lazy">
+                        </div>
+                        <div class="location-contact-card__content">
+                            <h3 class="location-contact-card__city">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Guayaquil
+                            </h3>
+                            <p class="location-contact-card__address">
+                                <i class="fas fa-location-dot"></i>
+                                Av. Francisco de Orellana<br>
+                                Mall del Sol, Local 215<br>
+                                Segundo Piso
+                            </p>
+                            <div class="location-contact-card__details">
+                                <div class="location-detail">
+                                    <i class="fas fa-phone"></i>
+                                    <a href="tel:+59342345678">(04) 234-5678</a>
+                                </div>
+                                <div class="location-detail">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <a href="https://wa.me/593987654322" target="_blank">+593 98 765 4322</a>
+                                </div>
+                                <div class="location-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Lun-Dom: 10:00 AM - 9:00 PM</span>
+                                </div>
+                            </div>
+                            <a href="https://maps.google.com" class="btn btn--outline btn--sm" target="_blank" rel="noopener">
+                                <i class="fas fa-directions"></i>
+                                Cómo llegar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="location-contact-card">
+                        <div class="location-contact-card__image">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop&q=85" 
+                                 alt="Sucursal Cuenca" 
+                                 loading="lazy">
+                        </div>
+                        <div class="location-contact-card__content">
+                            <h3 class="location-contact-card__city">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Cuenca
+                            </h3>
+                            <p class="location-contact-card__address">
+                                <i class="fas fa-location-dot"></i>
+                                Av. Ordóñez Lasso y<br>
+                                Miguel Cordero, Esquina<br>
+                                Sector Racar
+                            </p>
+                            <div class="location-contact-card__details">
+                                <div class="location-detail">
+                                    <i class="fas fa-phone"></i>
+                                    <a href="tel:+59372345678">(07) 234-5678</a>
+                                </div>
+                                <div class="location-detail">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <a href="https://wa.me/593987654323" target="_blank">+593 98 765 4323</a>
+                                </div>
+                                <div class="location-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Lun-Sáb: 9:00 AM - 7:00 PM</span>
+                                </div>
+                            </div>
+                            <a href="https://maps.google.com" class="btn btn--outline btn--sm" target="_blank" rel="noopener">
+                                <i class="fas fa-directions"></i>
+                                Cómo llegar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shipping & Coverage -->
+        <section class="shipping-coverage">
+            <div class="container">
+                <h2 class="section-title">Envíos y Cobertura</h2>
+                <p class="section-subtitle">Llegamos a todo Ecuador</p>
+                
+                <div class="shipping-grid">
+                    <div class="shipping-card">
+                        <div class="shipping-card__icon">
+                            <i class="fas fa-truck-fast"></i>
+                        </div>
+                        <h3 class="shipping-card__title">Envío Express</h3>
+                        <p class="shipping-card__time">24-48 horas</p>
+                        <ul class="shipping-card__list">
+                            <li>Quito, Guayaquil, Cuenca</li>
+                            <li>Principales ciudades</li>
+                            <li>Envío GRATIS desde $50</li>
+                        </ul>
+                        <p class="shipping-card__price">Desde $5.00</p>
+                    </div>
+
+                    <div class="shipping-card shipping-card--highlight">
+                        <div class="shipping-card__icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3 class="shipping-card__title">Envío Estándar</h3>
+                        <p class="shipping-card__time">3-5 días hábiles</p>
+                        <ul class="shipping-card__list">
+                            <li>Todo Ecuador continental</li>
+                            <li>Ciudades intermedias</li>
+                            <li>Zonas rurales accesibles</li>
+                        </ul>
+                        <p class="shipping-card__price">Desde $8.00</p>
+                    </div>
+
+                    <div class="shipping-card">
+                        <div class="shipping-card__icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h3 class="shipping-card__title">Retiro en Tienda</h3>
+                        <p class="shipping-card__time">2-4 horas</p>
+                        <ul class="shipping-card__list">
+                            <li>Sin costo de envío</li>
+                            <li>Compra online, retira en tienda</li>
+                            <li>Disponible en 3 sucursales</li>
+                        </ul>
+                        <p class="shipping-card__price shipping-card__price--free">GRATIS</p>
+                    </div>
+                </div>
+
+                <div class="coverage-note">
+                    <i class="fas fa-info-circle"></i>
+                    <p>
+                        <strong>Nota importante:</strong> Los tiempos de entrega son<br>
+                        estimados y pueden variar según la disponibilidad y<br>
+                        condiciones climáticas. Todos los envíos incluyen seguro y<br>
+                        empaque especializado anti-roturas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal & Policies -->
+        <section class="legal-policies">
+            <div class="container">
+                <h2 class="section-title">Información Legal y Políticas</h2>
+                
+                <div class="legal-grid">
+                    <div class="legal-card">
+                        <div class="legal-card__icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="legal-card__title">Venta Responsable</h3>
+                        <p class="legal-card__text">
+                            Cumplimos estrictamente con la Ley Orgánica para la Regulación y Control del Tabaco y Alcohol. 
+                            Prohibida la venta a menores de 18 años.
+                        </p>
+                        <a href="#" class="legal-card__link">Leer política completa <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="legal-card">
+                        <div class="legal-card__icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="legal-card__title">Licencias y Permisos</h3>
+                        <p class="legal-card__text">
+                            Todos nuestros productos son importados legalmente y cumplen con todas las regulaciones vigentes.
+                        </p>
+                        <a href="#" class="legal-card__link">Ver certificaciones <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="legal-card">
+                        <div class="legal-card__icon">
+                            <i class="fas fa-user-lock"></i>
+                        </div>
+                        <h3 class="legal-card__title">Privacidad de Datos</h3>
+                        <p class="legal-card__text">
+                            Protegemos tu información personal según la Ley de Protección de Datos del Ecuador. 
+                            Tus datos nunca serán compartidos con terceros.
+                        </p>
+                        <a href="#" class="legal-card__link">Política de privacidad <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="legal-card">
+                        <div class="legal-card__icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h3 class="legal-card__title">Términos y Condiciones</h3>
+                        <p class="legal-card__text">
+                            Conoce nuestros términos de venta, políticas de devolución, garantías y 
+                            responsabilidades en la compra de productos.
+                        </p>
+                        <a href="#" class="legal-card__link">Leer términos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (mismo del index.html) -->
+    <footer class="footer" role="contentinfo">
+        <!-- Age Verification Banner -->
+        <div class="footer-age-banner">
+            <div class="container">
+                <div class="age-banner">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p><strong>VENTA RESPONSABLE:</strong> Prohibida la venta a menores de 18 años. Bebe con moderación.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Badges - REDUCIDOS DE 5 A 3 -->
+        <div class="footer-badges">
+            <div class="container">
+                <div class="badges-grid">
+                    <div class="badge-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <h4>Envío 24-48 horas</h4>
+                        </div>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>Soporte 24/7</h4>
+                        </div>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <h4>Pago Seguro</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Footer Content - SIMPLIFICADO -->
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Column 1: Brand & Contact -->
+                    <div class="footer-col">
+                        <a href="index.html" class="footer-logo">
+                            <i class="fas fa-wine-glass-alt"></i>
+                            <span>LicorPremium</span>
+                        </a>
+                        <p class="footer-tagline">Bebidas premium desde 2020</p>
+
+                        <ul class="contact-list">
+                            <li>
+                                <i class="fab fa-whatsapp"></i>
+                                <a href="https://wa.me/593987654321" target="_blank">+593 987 654 321</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:soporte@licorpremium.ec">soporte@licorpremium.ec</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span>Lun-Sáb: 9AM-10PM | Dom: 10AM-8PM</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 2: Quick Links -->
+                    <div class="footer-col">
+                        <h3 class="footer-title">Categorías</h3>
+                        <ul class="footer-list">
+                            <li><a href="catalogo.html?cat=vinos">Vinos</a></li>
+                            <li><a href="catalogo.html?cat=licores">Licores</a></li>
+                            <li><a href="catalogo.html?cat=cervezas">Cervezas</a></li>
+                            <li><a href="catalogo.html?cat=whisky">Whisky & Ron</a></li>
+                            <li><a href="catalogo.html?cat=promociones" class="footer-link--highlight">Promociones</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: Policies -->
+                    <div class="footer-col">
+                        <h3 class="footer-title">Ayuda</h3>
+                        <ul class="footer-list">
+                            <li><a href="contacto.html#envios">Envíos</a></li>
+                            <li><a href="contacto.html#devoluciones">Devoluciones</a></li>
+                            <li><a href="contacto.html#rastrear">Rastrear Pedido</a></li>
+                            <li><a href="#faq">Preguntas Frecuentes</a></li>
+                            <li><a href="acerca.html#terminos">Términos y Condiciones</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 4: Newsletter & Social -->
+                    <div class="footer-col">
+                        <h3 class="footer-title">Newsletter</h3>
+                        <p class="footer-newsletter__text">Recibe ofertas exclusivas</p>
+                        
+                        <form class="newsletter-form" id="newsletter-form">
+                            <input 
+                                type="email" 
+                                class="newsletter-form__input" 
+                                placeholder="Tu email"
+                                required
+                            >
+                            <label class="newsletter-checkbox">
+                                <input type="checkbox" required>
+                                <span>Soy mayor de 18 años</span>
+                            </label>
+                            <button type="submit" class="newsletter-form__btn">
+                                <i class="fas fa-paper-plane"></i> Suscribirme
+                            </button>
+                        </form>
+
+                        <!-- Social Media -->
+                        <div class="footer-social">
+                            <h4>Síguenos</h4>
+                            <div class="social-links">
+                                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Methods - SIMPLIFICADO -->
+        <div class="footer-payments">
+            <div class="container">
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fas fa-credit-card" title="Tarjetas"></i>
+                    <i class="fas fa-university" title="Transferencia"></i>
+                    <i class="fas fa-wallet" title="Billetera Digital"></i>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom__content">
+                    <p>&copy; 2020-2025 <strong>LicorPremium</strong>. Todos los derechos reservados. Venta prohibida a menores de 18 años.</p>
+                    <a href="#main-content" class="back-to-top">
+                        <i class="fas fa-arrow-up"></i> Arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/51987654321?text=Hola,%20tengo%20una%20consulta%20sobre%20productos" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener"
+       aria-label="Chatear por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Aviso de cookies">
+        <div class="cookie-banner__content">
+            <div class="cookie-banner__text">
+                <i class="fas fa-cookie-bite"></i>
+                <p>
+                    <strong>Usamos cookies</strong> para mejorar tu experiencia.<br>
+                    También verificamos tu edad (18+) para cumplir con las<br>
+                    regulaciones. <a href="#privacidad" class="cookie-banner__link">Más información</a>
+                </p>
+            </div>
+            <div class="cookie-banner__actions">
+                <button class="cookie-banner__btn cookie-banner__btn--accept" id="accept-cookies">
+                    Aceptar todo
+                </button>
+                <button class="cookie-banner__btn cookie-banner__btn--reject" id="reject-cookies">
+                    Solo necesarias
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/scripts.js"></script>
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const wasActive = faqItem.classList.contains('active');
+                
+                // Close all FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked FAQ if it wasn't active
+                if (!wasActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Contact Form Submission
+        document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Te responderemos pronto.');
+            e.target.reset();
+        });
+    </script>
+
+    <!-- Modal: Login / Registro -->
+    <div class="modal" id="auth-modal" role="dialog" aria-labelledby="auth-modal-title" aria-modal="true">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__container">
+            <button class="modal__close" data-close-modal aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal__content">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Iniciar Sesión</button>
+                    <button class="auth-tab" data-tab="register">Registrarse</button>
+                </div>
+
+                <!-- Login Form -->
+                <form class="auth-form" id="login-form" data-tab-content="login">
+                    <h2 class="modal__title" id="auth-modal-title">Bienvenido de vuelta</h2>
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">
+                            <i class="fas fa-envelope"></i>
+                            Correo Electrónico
+                        </label>
+                        <input 
+                            type="email" 
+                            id="login-email" 
+                            class="form-input"
+                            placeholder="tu@email.com"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">
+                            <i class="fas fa-lock"></i>
+                            Contraseña
+                        </label>
+                        <div class="form-input-group">
+                            <input 
+                                type="password" 
+                                id="login-password" 
+                                class="form-input"
+                                placeholder="••••••••"
+                                required
+                            >
+                            <button type="button" class="form-input-icon" id="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="remember">
+                            <span>Recordarme</span>
+                        </label>
+                        <a href="#" class="form-link" id="forgot-password-link">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--block btn--lg">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Iniciar Sesión
+                    </button>
+                </form>
+
+                <!-- Register Form -->
+                <form class="auth-form hidden" id="register-form" data-tab-content="register">
+                    <h2 class="modal__title">Crear Cuenta</h2>
+                    <div class="form-group">
+                        <label for="register-name" class="form-label">
+                            <i class="fas fa-user"></i>
+                            Nombre Completo
+                        </label>
+                        <input 
+                            type="text" 
+                            id="register-name" 
+                            class="form-input"
+                            placeholder="Juan Pérez"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" class="form-label">
+                            <i class="fas fa-envelope"></i>
+                            Correo Electrónico
+                        </label>
+                        <input 
+                            type="email" 
+                            id="register-email" 
+                            class="form-input"
+                            placeholder="tu@email.com"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" class="form-label">
+                            <i class="fas fa-lock"></i>
+                            Contraseña
+                        </label>
+                        <input 
+                            type="password" 
+                            id="register-password" 
+                            class="form-input"
+                            placeholder="Mínimo 8 caracteres"
+                            required
+                            minlength="8"
+                        >
+                        <div class="form-hint">
+                            <small>Usa al menos 8 caracteres con letras y números</small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-checkbox form-checkbox--required">
+                            <input type="checkbox" name="terms" required>
+                            <span>Acepto los <a href="#terminos" class="form-link">términos y condiciones</a></span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-checkbox form-checkbox--required">
+                            <input type="checkbox" name="age" required>
+                            <span>Confirmo que soy mayor de 18 años</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--block btn--lg">
+                        <i class="fas fa-user-plus"></i>
+                        Registrarse
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
